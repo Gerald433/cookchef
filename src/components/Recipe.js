@@ -1,16 +1,16 @@
 import styles from "./Recipe.module.scss";
-import pizza from "../assets/images/jambon_champignon.jpg";
 
-function Recipe() {
+
+function Recipe({title, image}) {
   return (
     <div className={styles.recipe}>
       <div className={styles.imageContainer}>
-        <img src={pizza} alt="pizza" />
+        <img src={image} alt="pizza" />
       </div>
       <div
         className={`${styles.recipeTitle} d-flex flex-row justify-content-center align-items-center`}
       >
-        <h3>Jambon Champignon</h3>
+        <h3>{title}</h3>
       </div>
     </div>
   );
