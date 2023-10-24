@@ -1,10 +1,13 @@
 import styles from "./Header.module.scss";
 import logo from "../assets/images/logo.jpg";
+import { useState } from "react";
+import HeaderMenuXs from "./HeaderMenuXs";
 
 function Header() {
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center `}>
-      
       <div className="flex-fill">
         <img src={logo} alt="logo du site" />
       </div>
@@ -15,7 +18,17 @@ function Header() {
         </button>
         <button className="btn btn-primary">Connexion</button>
       </ul>
-      <i class={`${styles.headerXs} fa-solid fa-bars`}></i>
+      <i
+        onClick={() => setShowMenu(true)}
+        class={`${styles.headerXs} fa-solid fa-bars`}
+      ></i>
+
+      {showMenu && (
+        <>
+          <div onClick={() => setShowMenu(false)} className="calc"></div>
+          <HeaderMenuXs />
+        </>
+      )}
     </header>
   );
 }
