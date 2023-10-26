@@ -2,6 +2,20 @@
 
 h1 {
   text-align: center;
+
+  @include mixin.xs {
+   font-size: 22px;
+  }
+
+
+
+}
+
+h3{
+
+  @include mixin.xs {
+    font-size: 15px;
+   }
 }
 
 .grid {

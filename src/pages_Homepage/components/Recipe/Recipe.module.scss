@@ -1,7 +1,14 @@
+@use "../../../assets/styles/mixins" as mixin;
+
 .recipe {
   border-radius: 20px;
   // height: 400px;
   cursor: pointer;
+
+  @include mixin.xs {
+    // height: 300px;
+  }
+
   i {
     font-size: 20px;
   }
@@ -20,7 +27,10 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   overflow: hidden;
-  img {
+  .imgRecipe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: 1s transform;
     width: 100%;
   }

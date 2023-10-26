@@ -11,7 +11,7 @@ function Recipe({ title, image }) {
   return (
     <div onClick={handleClick} className={styles.recipe}>
       <div className={styles.imageContainer}>
-        <img src={image} alt={title} />
+        <img src={image} alt={title} className=  {`${styles.imgRecipe} br`} />
       </div>
       <div
         className={`${styles.recipeTitle} d-flex flex-column justify-content-center align-items-center`}
