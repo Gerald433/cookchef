@@ -14,7 +14,7 @@ function Content() {
 
   return (
     <div className=" flex-fill container">
-      <h1 className="my-30">Découvrez nos nouvelles recettes</h1>
+      <h1 className={`${styles.title} my-30`}>Découvrez nos nouvelles recettes</h1>
       <div className={`card d-flex flex-column p-20 ${styles.contentCard}`}>
         <div
           className={`d-flex flex row justify-conytent-center align-items-center my-30 ${styles.searchBar}`}
