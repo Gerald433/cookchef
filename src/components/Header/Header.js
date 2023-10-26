@@ -1,7 +1,7 @@
 import styles from "./Header.module.scss";
-import logo from "../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.jpg";
 import { useState } from "react";
-import HeaderMenuXs from "./HeaderMenuXs";
+import HeaderMenuXs from "./components_HeaderMenuXs/HeaderMenuXs/HeaderMenuXs";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);

@@ -1,5 +1,5 @@
 import styles from "./Content.module.scss";
-import Recipe from "./Recipe";
+import Recipe from "./components/Recipe/Recipe";
 import { data } from "../data/recipes";
 import { useState } from "react";
 
