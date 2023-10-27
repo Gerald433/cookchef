@@ -40,14 +40,13 @@ function Content() {
           />
         </div>
 
-          <div className={styles.grid}>
-            {recipes
-              .filter((r) => r.title.toLowerCase().startsWith(filter))
-              .map((r) => (
-                <Recipe key={r._id} recipe={r} updateLike={updateLike}/>
-              ))}
-          </div>
-        
+        <div className={styles.grid}>
+          {recipes
+            .filter((r) => r.title.toLowerCase().startsWith(filter))
+            .map((r) => (
+              <Recipe key={r._id} recipe={r} updateLike={updateLike} />
+            ))}
+        </div>
       </div>
     </div>
   );
