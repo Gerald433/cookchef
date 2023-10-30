@@ -23,7 +23,6 @@ root.render(
     
 
     </main>
-    
     <Footer />
   </BrowserRouter>
 );
