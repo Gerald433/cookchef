@@ -1,0 +1,72 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.load {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 3;
+  inset: 0;
+  background-color: var(--gray-1);
+  animation: disappear 0.3s 2.2s forwards, zindex 0s 2.5s forwards;
+}
+
+.loading {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  background-color: var(--gray-1);
+  display: flex;
+  border: 8px solid var(--primary);
+  border-top-color: var(--gray-2);
+  border-bottom-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  animation: spin 1s linear infinite, disappear 0.3s 2.2s forwards,
+    zindex 0s 2.5s forwards;
+}
+
+.load_text {
+  display: flex;
+  justify-content: center;
+  padding-top: 600px;
+  color: #9356dc;
+  font-family: "Roboto-Regular";
+  font-size: 22px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    overflow-y: hidden;
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes disappear {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zindex {
+  100% {
+    z-index: 100;
+  }
+}
+
+
+
+
+
+
