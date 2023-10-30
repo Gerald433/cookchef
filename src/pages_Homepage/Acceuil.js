@@ -12,8 +12,8 @@ function Acceuil() {
         />
 
         <div>
-          <h1 className="br">Street - Pizza</h1>
-          <Link className={`${styles.linkPizzasPage} br`} to="/app">
+          <h1>Street - Pizza</h1>
+          <Link className={`${styles.linkPizzasPage}`} to="/app">
             Recettes
           </Link>
         </div>
