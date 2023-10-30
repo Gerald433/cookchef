@@ -14,8 +14,7 @@ function Acceuil() {
         <div>
           <h1 className="br">Street Pizza</h1>
           <Link className={`${styles.linkPizzasPage} br`} to="/app">
-            {" "}
-            Passer commande{" "}
+            Passer commande
           </Link>
         </div>
       </div>
