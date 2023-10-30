@@ -1,6 +1,6 @@
 @use "../assets/styles/mixins" as mixin;
 
-h1 {
+h2 {
   text-align: center;
 
   @include mixin.xs {
