@@ -12,9 +12,9 @@ function Acceuil() {
         />
 
         <div>
-          <h1 className="br">Street Pizza</h1>
+          <h1 className="br">Street - Pizza</h1>
           <Link className={`${styles.linkPizzasPage} br`} to="/app">
-            Passer commande
+            Recettes
           </Link>
         </div>
       </div>

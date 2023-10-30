@@ -4,8 +4,10 @@
   display: flex;
   justify-content: center;
   position: relative;
-  
-
+  max-width: 2000px;
+  align-items: center;
+  justify-content: center;
+  max-height: 2000px;
 
   .imgAccueil {
     width: 100%;
@@ -14,42 +16,55 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     // position: relative;
-    margin: auto;
+    // margin: auto;
   }
 
   h1,
   .linkPizzasPage {
-    color: var(--gray-2);
+    // color: var(--gray-1);
     text-decoration: none;
   }
 
   h1 {
     position: absolute;
+    width: 100%;
     top: 50px;
-    left: 250px;
+    left: 0;
     text-align: center;
     font-size: 80px;
+    color: var(--gray-1);
     @include mixin.sm-lt {
-     
     }
     @include mixin.xs {
-      
+      font-size: 40px;
     }
   }
 
   .linkPizzasPage {
+    height: 100px;
+    display: flex;
+    align-items: center;
     font-size: 40px;
+    max-width: 100%;
     position: absolute;
-    top: 600px;
-    left: 100px;
-    display: block;
-   
+    padding: 0 30px;
+    top: 200px;
+    left: 50%; /* Positionnement initiale à 50% */
+    // transform: translateX(-50%);
+    text-align: center;
+
+    color: var(--gray-2);
+    background-color: var(--primary);
+    border-radius: 50px;
+    border: 1px solid;
+
     text-align: end;
     @include mixin.sm-lt {
-     
     }
     @include mixin.xs {
-      
+      height: 50px;
+      top: 120px;
+      font-size: 20px;
     }
   }
 }
