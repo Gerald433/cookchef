@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 
 function Acceuil() {
   return (
-    <div>
-      <img
-        className={`${styles.imgAccueil}`}
-        src="assets/images/imgAccueil.jpg"
-        alt="Fromage étiré d'une part de pizza"
-      />
-      <h2>page acceuil</h2>
-      <Link to="/app"> viens manger </Link>
-    </div>
+    <>
+      <div className={`${styles.container}`}>
+        <img
+          className={`${styles.imgAccueil}`}
+          src="assets/images/imgAccueil.jpg"
+          alt="Fromage étiré d'une part de pizza"
+        />
+
+        <div>
+          <h1>Street Pizza</h1>
+          <Link className={`${styles.linkPizzasPage}`} to="/app">
+            {" "}
+            Passer commande{" "}
+          </Link>
+        </div>
+      </div>
+    </>
   );
 }
 
