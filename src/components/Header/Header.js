@@ -13,14 +13,14 @@ function Header() {
       </div>
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
-          <i class="fa-sharp fa-solid fa-heart mr-5"></i>
+          <i className="fa-sharp fa-solid fa-heart mr-5"></i>
           <span>Wishlist</span>
         </button>
         <button className="btn btn-primary">Connexion</button>
       </ul>
       <i
         onClick={() => setShowMenu(true)}
-        class={`${styles.headerXs} fa-solid fa-bars`}
+        className={`${styles.headerXs} fa-solid fa-bars`}
       ></i>
 
       {showMenu && (
