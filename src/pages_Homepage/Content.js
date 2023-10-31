@@ -53,7 +53,12 @@ function Content() {
             {recipes
               .filter((r) => r.title.toLowerCase().startsWith(filter))
               .map((r) => (
-                <Recipe key={r._id} recipe={r} updateLike={updateLike} />
+                <Recipe
+                  key={r._id}
+                  price={r.price}
+                  recipe={r}
+                  updateLike={updateLike}
+                />
               ))}
           </div>
         </div>
