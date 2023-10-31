@@ -4,16 +4,8 @@ import { data } from "../data/recipes";
 import { useState } from "react";
 import PageLoader from "../components/PageLoader/PageLoader";
 
-function Content() {
-  // const [loading, setLoading] = useState(false);
-
-  // function handleButtonClick() {
-  //   setLoading(true);
-  // }
-
-  // const recipes = data;
+function Content({ setWishList }) {
   const [recipes, setRecipes] = useState(data);
-  // const [isLoading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState("");
 
   function handleInput(e) {
@@ -21,13 +13,18 @@ function Content() {
     setFilter(filter.trim().toLowerCase());
   }
 
-  const updateLike = (recipeId, newLikeValue) => {
+  function updateLike(recipeId, newLikeValue) {
     setRecipes((prevRecipes) =>
       prevRecipes.map((recipe) =>
         recipe._id === recipeId ? { ...recipe, like: newLikeValue } : recipe
       )
     );
-  };
+  }
+
+  function addToWishListCallBack(recipeId) {
+    const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
+    setWishList((prevWishList) => [...prevWishList, selectedRecipe]);
+  }
 
   return (
     <>
@@ -58,6 +55,7 @@ function Content() {
                   price={r.price}
                   recipe={r}
                   updateLike={updateLike}
+                  addToWishListCallBack={addToWishListCallBack}
                 />
               ))}
           </div>

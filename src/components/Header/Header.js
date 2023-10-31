@@ -2,10 +2,19 @@ import styles from "./Header.module.scss";
 import logo from "../../assets/images/logo.jpg";
 import { useState } from "react";
 import HeaderMenuXs from "./components_HeaderMenuXs/HeaderMenuXs/HeaderMenuXs";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
+
+  const location = useLocation();
+  let linkPath = "/wishlist"; // par défaut, le lien pointe vers la page Wishlist
+  let buttonText = "Wishlist"; // Texte par défaut pour le bouton
+
+  if (location.pathname === "/wishlist") {
+    linkPath = "/recipes"; // Changer le lien pour la page Wishlist
+    buttonText = "Recettes"; // Changer le texte pour la page Wishlist
+  }
 
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center `}>
@@ -17,8 +26,8 @@ function Header() {
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
           <i className="fa-sharp fa-solid fa-heart mr-5"></i>
-          <Link className="linkWishList" to={"/wishlist"}>
-            <span>Wishlist</span>
+          <Link className={`${styles.wishList}`} to={linkPath}>
+            <span>{buttonText}</span>
           </Link>
         </button>
         <button className="btn btn-primary">Connexion</button>

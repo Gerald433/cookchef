@@ -9,8 +9,12 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Acceuil from "./pages_Homepage/Acceuil";
 import Content from "./pages_Homepage/Content";
-import WishList from "./pages_Homepage/WishList";
+import WishContent from "./pages_Homepage/WishContent";
 const root = createRoot(document.getElementById("root"));
+
+
+
+
 
 root.render(
   <BrowserRouter>
@@ -36,12 +40,12 @@ root.render(
             </div>
           }
         />
-         <Route
+        <Route
           path="/wishlist"
           element={
             <div>
               <Header />
-              <WishList />
+              <WishContent />
               <Footer />
             </div>
           }
@@ -50,6 +54,5 @@ root.render(
     </main>
   </BrowserRouter>
 );
-
 
 reportWebVitals();

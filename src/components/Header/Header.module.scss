@@ -17,6 +17,11 @@
   @include mixin.xs {
     display: none;
   }
+
+  .wishList{
+    text-decoration: none;
+    color: var(--text-color);
+  }
 }
 
 .headerXs {
