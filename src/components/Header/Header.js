@@ -2,6 +2,7 @@ import styles from "./Header.module.scss";
 import logo from "../../assets/images/logo.jpg";
 import { useState } from "react";
 import HeaderMenuXs from "./components_HeaderMenuXs/HeaderMenuXs/HeaderMenuXs";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -9,7 +10,9 @@ function Header() {
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center `}>
       <div className="flex-fill">
-        <img src={logo} alt="logo du site" />
+        <Link to={"/"}>
+          <img src={logo} alt="logo du site" />
+        </Link>
       </div>
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
