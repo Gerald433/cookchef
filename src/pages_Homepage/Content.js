@@ -31,7 +31,7 @@ function Content() {
 
   return (
     <>
-      <PageLoader />
+      {/* <PageLoader /> */}
       <div className=" flex-fill container">
         <h2 className={`${styles.title} my-30`}>
           Découvrez nos nouvelles recettes
