@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  max-width: 2000px;
+  // max-width: 2000px;
   align-items: center;
   justify-content: center;
   max-height: 2000px;
@@ -28,17 +28,36 @@
   h1 {
     position: absolute;
     width: 100%;
-    top: 100px;
+    top: 80px;
     left: 0;
     text-align: center;
     font-size: 80px;
-    color: var(--gray-1);
+    color: var(--text-color);
+    
     @include mixin.sm-lt {
     }
     @include mixin.xs {
       font-size: 40px;
     }
   }
+
+  .planning{
+    width: 100%;
+    font-size: 22px;
+    position: absolute;
+    top: 200px;
+    left: 0;
+    text-align: center;
+    line-height: 200%;
+  }
+
+.priceIndice{
+  font-size: 35px;
+  position: absolute;
+  top: 431px;
+  left: 53%;
+  color: var(--text-color);
+}
 
   .linkPizzasPage {
     height: 100px;
@@ -48,8 +67,8 @@
     max-width: 100%;
     position: absolute;
     padding: 0 30px;
-    top: 220px;
-    left: 50%; /* Positionnement initiale à 50% */
+    top: 490px;
+    left: 53%; /* Positionnement initiale à 50% */
     // transform: translateX(-50%);
     text-align: center;
 
