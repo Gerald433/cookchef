@@ -17,7 +17,9 @@ function Header() {
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
           <i className="fa-sharp fa-solid fa-heart mr-5"></i>
-          <span>Wishlist</span>
+          <Link className="linkWishList" to={"/wishlist"}>
+            <span>Wishlist</span>
+          </Link>
         </button>
         <button className="btn btn-primary">Connexion</button>
       </ul>
