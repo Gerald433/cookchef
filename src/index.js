@@ -9,7 +9,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Acceuil from "./pages_Homepage/Acceuil";
 import Content from "./pages_Homepage/Content";
-
+import WishList from "./pages_Homepage/WishList";
 const root = createRoot(document.getElementById("root"));
 
 root.render(
@@ -32,6 +32,16 @@ root.render(
             <div>
               <Header />
               <Content />
+              <Footer />
+            </div>
+          }
+        />
+         <Route
+          path="/wishlist"
+          element={
+            <div>
+              <Header />
+              <WishList />
               <Footer />
             </div>
           }
