@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './WishContent.module.scss'
 
 function WishContent() {
   // Récupérer la liste de souhaits depuis localStorage
@@ -8,7 +9,7 @@ function WishContent() {
   return (
     <div>
       <h2>Ma liste de souhaits</h2>
-      <ul>
+      <ul className={`${styles.listTotal}`}>
         {wishList.map((recipe) => (
           <li key={recipe._id}>
             {recipe.title} <span>{recipe.price}</span>
