@@ -82,25 +82,24 @@ function WishContent() {
                       {calculateTotal(recipe) + " €"}
                     </span>
                     <button
-                      className={`${styles.btnDelete}`}
+                      className={`${styles.btnDelete} btn-primary`}
                       onClick={() => handleRemoveItem(recipe._id)}
                     >
-                      x
+                      Enlever
                     </button>
                   </div>
                 </div>
               </li>
             ))}
           </ul>
-          <span className={`${styles.ens}`}>
-            Total = {calculateTotalGeneral()} €
-          </span>
-          <button
-                      className={`${styles.btnOk}`}
-                      
-                    >
-                      Commander
-                    </button>
+          <div className={`${styles.validPrice} d-flex`}>
+            <span className={`${styles.ens}`}>
+              Total = {calculateTotalGeneral()} €
+            </span>
+            <button className={`${styles.btnValid} btn-primary`}>
+              Commander
+            </button>
+          </div>
         </div>
       </form>
     </div>

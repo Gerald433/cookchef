@@ -10,13 +10,20 @@ h2 {
   padding: 20px;
   background-color: white;
 
-  .ens {
-    display: block;
-    width: 50%;
-    text-align: end;
+  .validPrice {
+    .ens {
+      display: block;
+      width: 100%;
+      text-align: end;
+    }
+
+    .btnValid {
+      margin-left: 50px;
+      border-radius: 50px;
+    }
   }
 
-  .btnOk{
+  .btnOk {
     background-color: blue;
   }
 
@@ -26,14 +33,13 @@ h2 {
 
       .box {
         margin-top: 5px;
-        width: 60%;
+        width: 0%;
         justify-content: space-between;
 
-        .btnDelete{
-
-            background-color: yellow;
-            margin-left: 20px;
-          }
+        .btnDelete {
+          border-radius: 50px;
+          margin-left: 20px;
+        }
       }
     }
 
@@ -49,10 +55,7 @@ h2 {
 
       .priceUnit {
         margin-left: 5px;
-        margin-right: 5px;
       }
-
-   
     }
   }
 }
