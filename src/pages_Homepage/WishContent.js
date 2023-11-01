@@ -11,8 +11,10 @@ function WishContent() {
   // Mettre à jour la quantité sélectionnée pour une recette
   const handleQuantityChange = (event, recipeId) => {
     const { value } = event.target;
-    const newQuantities = { ...quantities, [recipeId]: value };
-    setQuantities({ ...quantities, [recipeId]: value });
+    // Vérifier si la valeur est un nombre valide et positif avant de mettre à jour l'état
+    const newValue = Math.max(0, parseInt(value)); // Utilisation de Math.max pour s'assurer que la valeur est positive
+    const newQuantities = { ...quantities, [recipeId]: newValue };
+    setQuantities(newQuantities);
     localStorage.setItem("quantities", JSON.stringify(newQuantities));
   };
 
@@ -32,6 +34,17 @@ function WishContent() {
     });
 
     return totalGeneral.toFixed(2); // Pour arrondir le total général à 2 décimales
+  };
+
+  const handleRemoveItem = (recipeId) => {
+    // Filtrer la liste de souhaits pour exclure l'élément à supprimer
+    const updatedWishList = wishList.filter(
+      (recipe) => recipe._id !== recipeId
+    );
+
+    // Mettre à jour la liste de souhaits dans l'état et dans le localStorage
+    localStorage.setItem("wishList", JSON.stringify(updatedWishList));
+    setQuantities(updatedWishList); // Mettre à jour l'état avec la liste de souhaits modifiée
   };
 
   // Afficher la liste de souhaits
@@ -68,6 +81,12 @@ function WishContent() {
                     <span className={`${styles.total}`}>
                       {calculateTotal(recipe) + " €"}
                     </span>
+                    <button
+                      className={`${styles.btnDelete}`}
+                      onClick={() => handleRemoveItem(recipe._id)}
+                    >
+                      x
+                    </button>
                   </div>
                 </div>
               </li>
@@ -76,6 +95,12 @@ function WishContent() {
           <span className={`${styles.ens}`}>
             Total = {calculateTotalGeneral()} €
           </span>
+          <button
+                      className={`${styles.btnOk}`}
+                      
+                    >
+                      Commander
+                    </button>
         </div>
       </form>
     </div>
