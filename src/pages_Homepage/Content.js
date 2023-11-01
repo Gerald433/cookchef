@@ -4,9 +4,10 @@ import { data } from "../data/recipes";
 import { useState } from "react";
 import PageLoader from "../components/PageLoader/PageLoader";
 
-function Content({ setWishList }) {
+function Content({ setSelectedRecipe }) {
   const [recipes, setRecipes] = useState(data);
   const [filter, setFilter] = useState("");
+  const [wishList, setWishList] = useState([]);
 
   function handleInput(e) {
     const filter = e.target.value;
@@ -21,10 +22,33 @@ function Content({ setWishList }) {
     );
   }
 
+  function handleRecipeClick(recipeId) {
+    const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
+    setSelectedRecipe(selectedRecipe);
+  }
+
   function addToWishListCallBack(recipeId) {
     const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
-    setWishList((prevWishList) => [...prevWishList, selectedRecipe]);
+
+    // Récupérer les données actuelles de wishList dans localStorage (s'il existe)
+    const currentWishList = JSON.parse(localStorage.getItem('wishList')) || [];
+
+    // Vérifier si la recette n'est pas déjà dans la liste de souhaits
+    if (!currentWishList.some((recipe) => recipe._id === selectedRecipe._id)) {
+      const updatedWishList = [...currentWishList, selectedRecipe];
+      
+      // Mettre à jour la liste de souhaits dans localStorage
+      localStorage.setItem('wishList', JSON.stringify(updatedWishList));
+
+      // Mettre à jour l'état local de la liste de souhaits
+      setWishList(updatedWishList);
+    }
   }
+
+  // function addToWishListCallBack(recipeId) {
+  //   const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
+  //   setWishList((prevWishList) => [...prevWishList, selectedRecipe]);
+  // }
 
   return (
     <>
