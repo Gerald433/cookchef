@@ -12,10 +12,6 @@ import Content from "./pages_Homepage/Content";
 import WishContent from "./pages_Homepage/WishContent";
 const root = createRoot(document.getElementById("root"));
 
-
-
-
-
 root.render(
   <BrowserRouter>
     <main>
