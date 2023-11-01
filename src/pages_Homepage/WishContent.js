@@ -32,22 +32,28 @@ function WishContent() {
       >
         <ul className={`${styles.listTotal}`}>
           {wishList.map((recipe) => (
-            <li key={recipe._id}>
+            <li className={`${styles.article}`} key={recipe._id}>
               {recipe.title} <br />
               {/* Afficher d'autres détails de la recette si nécessaire */}
-              <div className={`${styles.firstCalcul}`}>
-                <input
-                  value={quantities[recipe._id] || 0}
-                  onChange={(event) => handleQuantityChange(event, recipe._id)}
-                  className={`${styles.quantitySelect}`}
-                  type="number"
-                />
-                <span className={`${styles.priceUnit}`}>x</span>
-                <span className={`${styles.priceUnit}`}>{recipe.price}</span>
-                <span className={`${styles.priceUnit}`}>=</span>
-                <span className={`${styles.total}`}>
-                  {calculateTotal(recipe) + ' €'}
-                </span>
+              <div className={`${styles.box} d-flex`}>
+                <div className={`${styles.firstCalcul} d-flex`}>
+                  <input
+                    value={quantities[recipe._id] || 0}
+                    onChange={(event) =>
+                      handleQuantityChange(event, recipe._id)
+                    }
+                    className={`${styles.quantitySelect}`}
+                    type="number"
+                  />
+                  <span className={`${styles.priceUnit}`}>x</span>
+                  <span className={`${styles.priceUnit}`}>{recipe.price}</span>
+                  <span className={`${styles.priceUnit}`}>=</span>
+                </div>
+                <div>
+                  <span className={`${styles.total}`}>
+                    {calculateTotal(recipe) + " €"}
+                  </span>
+                </div>
               </div>
             </li>
           ))}
