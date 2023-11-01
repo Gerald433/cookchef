@@ -22,6 +22,18 @@ function WishContent() {
     return (quantity * price).toFixed(2);
   };
 
+  const calculateTotalGeneral = () => {
+    let totalGeneral = 0;
+
+    // Parcours de toutes les recettes
+    wishList.forEach((recipe) => {
+      const recipeTotal = parseFloat(calculateTotal(recipe));
+      totalGeneral += recipeTotal;
+    });
+
+    return totalGeneral.toFixed(2); // Pour arrondir le total général à 2 décimales
+  };
+
   // Afficher la liste de souhaits
   return (
     <div>
@@ -30,34 +42,41 @@ function WishContent() {
         action="POST"
         className="d-flex align-items-center justify-content-center"
       >
-        <ul className={`${styles.listTotal}`}>
-          {wishList.map((recipe) => (
-            <li className={`${styles.article}`} key={recipe._id}>
-              {recipe.title} <br />
-              {/* Afficher d'autres détails de la recette si nécessaire */}
-              <div className={`${styles.box} d-flex`}>
-                <div className={`${styles.firstCalcul} d-flex`}>
-                  <input
-                    value={quantities[recipe._id] || 0}
-                    onChange={(event) =>
-                      handleQuantityChange(event, recipe._id)
-                    }
-                    className={`${styles.quantitySelect}`}
-                    type="number"
-                  />
-                  <span className={`${styles.priceUnit}`}>x</span>
-                  <span className={`${styles.priceUnit}`}>{recipe.price}</span>
-                  <span className={`${styles.priceUnit}`}>=</span>
+        <div className={`${styles.listTotal}`}>
+          <ul className={`${styles.choice}`}>
+            {wishList.map((recipe) => (
+              <li className={`${styles.article}`} key={recipe._id}>
+                {recipe.title} <br />
+                {/* Afficher d'autres détails de la recette si nécessaire */}
+                <div className={`${styles.box} d-flex`}>
+                  <div className={`${styles.firstCalcul} d-flex`}>
+                    <input
+                      value={quantities[recipe._id] || 0}
+                      onChange={(event) =>
+                        handleQuantityChange(event, recipe._id)
+                      }
+                      className={`${styles.quantitySelect}`}
+                      type="number"
+                    />
+                    <span className={`${styles.priceUnit}`}>x</span>
+                    <span className={`${styles.priceUnit}`}>
+                      {recipe.price}
+                    </span>
+                    <span className={`${styles.priceUnit}`}>=</span>
+                  </div>
+                  <div>
+                    <span className={`${styles.total}`}>
+                      {calculateTotal(recipe) + " €"}
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <span className={`${styles.total}`}>
-                    {calculateTotal(recipe) + " €"}
-                  </span>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+          <span className={`${styles.ens}`}>
+            Total = {calculateTotalGeneral()} €
+          </span>
+        </div>
       </form>
     </div>
   );

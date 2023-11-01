@@ -10,31 +10,41 @@ h2 {
   padding: 20px;
   background-color: white;
 
-  .article {
-    min-width: 50%;
+  .ens{
+    display: block;
+    width: 50%;
+    text-align: end;
+}
 
-    .box {
-      margin-top: 5px;
-      width: 50%;
-      justify-content: space-between;
+
+
+  .choice {
+    .article {
+      min-width: 50%;
+
+      .box {
+        margin-top: 5px;
+        width: 50%;
+        justify-content: space-between;
+      }
     }
-  }
 
-  .quantitySelect {
-    min-width: 20px;
-    max-width: 40px;
-  }
-
-  .firstCalcul {
-    width: 100px;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    background-color: var(--gray-2);
-    margin-bottom: 30px;
-
-    .priceUnit {
-      margin-left: 5px;
-      margin-right: 5px;
+    .quantitySelect {
+      width: 40px;
     }
+
+    .firstCalcul {
+      width: 100px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      background-color: var(--gray-2);
+      margin-bottom: 30px;
+
+      .priceUnit {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+   
   }
 }

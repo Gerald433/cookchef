@@ -15,8 +15,14 @@
     margin-bottom: 5px;
 
     .wishList {
+      width: 100%;
       text-decoration: none;
       color: var(--primary);
+      &:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+      
     }
 
     &:hover {
