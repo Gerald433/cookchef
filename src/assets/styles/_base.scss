@@ -1,10 +1,23 @@
 body {
-  margin: 0;
+  display: flex;
+  margin: auto;
   font-family: "Agbalumo", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
   background-color: var(--gray-2);
+}
+
+#root {
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+main {
+  flex-grow: 1;
 }
 
 h1,
@@ -28,11 +41,10 @@ img {
   max-width: 100%;
 }
 
-input{
+input {
   font-family: var(--font-family);
 }
 
-::placeholder{
+::placeholder {
   font-family: var(--font-family);
 }
-
