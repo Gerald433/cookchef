@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Acceuil() {
   return (
     <>
-      <div className={`${styles.container}`}>
+      <div className={`${styles.container} container`}>
         <img
           className={`${styles.imgAccueil}`}
           src="assets/images/imgAccueil.jpg"

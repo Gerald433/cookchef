@@ -14,40 +14,46 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
-    <main>
-      <Routes>
-        {/* Utilisation de la prop element pour conditionner le rendu du Header */}
-        <Route
-          path="/"
-          element={
-            <div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <>
+            <main>
               <Acceuil />
-              <Footer />
-            </div>
-          }
-        />
-        <Route
-          path="/recipes"
-          element={
-            <div>
-              <Header />
+            </main>
+
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/recipes"
+        element={
+          <>
+            <Header />
+            <main>
               <Content />
-              <Footer />
-            </div>
-          }
-        />
-        <Route
-          path="/wishlist"
-          element={
-            <div>
-              <Header />
+            </main>
+
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/wishlist"
+        element={
+          <>
+            <Header />
+            <main>
               <WishContent />
-              <Footer />
-            </div>
-          }
-        />
-      </Routes>
-    </main>
+            </main>
+
+            <Footer />
+          </>
+        }
+      />
+    </Routes>
   </BrowserRouter>
 );
 
