@@ -1,0 +1,12 @@
+@use "../../assets/styles/mixins" as mixin;
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 50px;
+  align-items: center;
+
+  @include mixin.sm-lt {
+    padding: 0;
+  }
+}
