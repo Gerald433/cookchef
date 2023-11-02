@@ -18,7 +18,7 @@ function WishContent() {
   //   setQuantities(newQuantities);
   //   localStorage.setItem("quantities", JSON.stringify(newQuantities));
   // };
-
+// ////////////////////////////////////////////////////////////////////////////////////////////
   const calculateTotal = (recipe) => {
     const quantity = parseInt(quantities[recipe._id]) || 0;
     const price = parseFloat(recipe.price) || 0;
@@ -39,13 +39,16 @@ function WishContent() {
 
   const handleRemoveItem = (recipeId) => {
     // Filtrer la liste de souhaits pour exclure l'élément à supprimer
-    const updatedWishList = wishList.filter(
-      (recipe) => recipe._id !== recipeId
-    );
-
-    // Mettre à jour la liste de souhaits dans l'état et dans le localStorage
+    const updatedWishList = wishList.filter((recipe) => recipe._id !== recipeId);
+  
+    // Mettre à jour la liste de souhaits dans le state et dans le localStorage
+    setWishList(updatedWishList);
     localStorage.setItem("wishList", JSON.stringify(updatedWishList));
-    setQuantities(updatedWishList); // Mettre à jour l'état avec la liste de souhaits modifiée
+    // Réinitialiser la quantité de la recette supprimée à zéro dans le state
+  const newQuantities = { ...quantities };
+  newQuantities[recipeId] = 0;
+  setQuantities(newQuantities);
+  // Enregistrez la nouvelle quantité dans le localStorage ici
   };
 
   // Afficher la liste de souhaits
@@ -92,18 +95,6 @@ function WishContent() {
     setQuantities(storedQuantities);
   }, []);
 
-
-
-
-
-
-
-
-
-
-
-
-  
   return (
     // <div>
     //   <h2>Ma liste de souhaits</h2>
