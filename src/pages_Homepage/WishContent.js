@@ -90,7 +90,7 @@ function WishContent() {
                     className={`${styles.btnDelete} d-flex justify-content-center align-items-center   btn-reverse-primary`}
                     onClick={() => handleRemoveItem(recipe._id)}
                   >
-                    X
+                    -
                   </div>
                 </div>
 
