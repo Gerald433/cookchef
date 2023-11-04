@@ -80,36 +80,42 @@ function WishContent() {
         <div className={`${styles.listTotal}`}>
           <ul className={`${styles.choice}`}>
             {wishList.map((recipe) => (
-              <li className={`${styles.article}`} key={recipe._id}>
-                {recipe.title} <br />
+              <li className={`${styles.article} d-flex  flex-column `}>
                 {/* Afficher d'autres détails de la recette si nécessaire */}
-                <div className={`${styles.box} d-flex`}>
-                  <div className={`${styles.firstCalcul} d-flex`}>
-                    <input
-                      value={quantities[recipe._id] || 0}
-                      onChange={(event) =>
-                        handleQuantityChange(event, recipe._id)
-                      }
-                      className={`${styles.quantitySelect}`}
-                      type="number"
-                    />
-                    <span className={`${styles.priceUnit}`}>x</span>
-                    <span className={`${styles.priceUnit}`}>
-                      {recipe.price}
-                    </span>
-                    <span className={`${styles.priceUnit}`}>=</span>
+                <div className={`${styles.band} d-flex align-items-center`}>
+                  <span className={`${styles.articleName}   `} key={recipe._id}>
+                    {recipe.title}
+                  </span>
+                  <div
+                    className={`${styles.btnDelete} d-flex justify-content-center align-items-center   btn-reverse-primary`}
+                    onClick={() => handleRemoveItem(recipe._id)}
+                  >
+                    X
                   </div>
-                  <div className={`${styles.result}`}>
+                </div>
+
+                <div className={`${styles.box} d-flex `}>
+                  
+                    <div className={`${styles.firstCalcul} d-flex `}>
+                      <input
+                        value={quantities[recipe._id] || 0}
+                        onChange={(event) =>
+                          handleQuantityChange(event, recipe._id)
+                        }
+                        className={`${styles.quantitySelect}`}
+                        type="number"
+                      />
+                      <span className={`${styles.priceUnit}`}>x</span>
+                      <span className={`${styles.priceUnit}`}>
+                        {recipe.price}
+                      </span>
+                      <span className={`${styles.priceUnit}`}>=</span>
+                    </div>
+
                     <span className={`${styles.total}`}>
                       {calculateTotal(recipe) + " €"}
                     </span>
-                    <button
-                      className={`${styles.btnDelete} btn-reverse-primary`}
-                      onClick={() => handleRemoveItem(recipe._id)}
-                    >
-                       X
-                    </button>
-                  </div>
+                  
                 </div>
               </li>
             ))}

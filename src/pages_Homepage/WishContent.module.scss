@@ -1,3 +1,5 @@
+@use "../assets/styles/mixins" as mixin;
+
 h2 {
   margin: 30px;
 }
@@ -29,48 +31,60 @@ h2 {
 
   .choice {
     .article {
-      min-width: 50%;
+      // min-width: 50%;
+
+      .band {
+        justify-content: space-between;
+        background-color: var(--gray-2);
+
+        .btnDelete {
+          border-radius: 50px;
+          // margin-left: 20px;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          font-family: "sans-serif";
+          font-size: 8px;
+        }
+      }
+      .articleName {
+        text-align: center;
+        font-size: 20px;
+        display: block;
+      }
 
       .box {
-        margin-top: 5px;
-        width: 0%;
         justify-content: space-between;
+        padding-left: 20%;
+        padding-right: 20%;
+        margin-top: 5px;
+        width: 100%;
+        @include mixin.xs {
+          padding: 0;
+        }
 
+        .firstCalcul {
+          width: 100px;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          margin-bottom: 30px;
+
+          .priceUnit {
+            margin-left: 5px;
+          }
+        }
         .result {
           display: flex;
           // flex-direction: column;
-          
-
-          .total {
-            margin: 0 0 0 10px ;
-            width: 80px;
-          }
-          .btnDelete {
-            border-radius: 50px;
-            // margin-left: 20px;
-            width: 20px;
-            height: 20px;
-            text-align: center;
-            padding: 0;
-            cursor: pointer;
-          }
+        }
+        .total {
+          display: block;
         }
       }
     }
 
     .quantitySelect {
       width: 40px;
-    }
-
-    .firstCalcul {
-      width: 100px;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      margin-bottom: 30px;
-
-      .priceUnit {
-        margin-left: 5px;
-      }
     }
   }
 }
