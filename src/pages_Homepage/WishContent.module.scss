@@ -36,10 +36,20 @@ h2 {
         width: 0%;
         justify-content: space-between;
 
+        .result {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 0;
+        
+
         .btnDelete {
           border-radius: 50px;
           margin-left: 20px;
+          // height: 15px;
+          margin: 5px 0 5px  0;
         }
+        }
+        
       }
     }
 

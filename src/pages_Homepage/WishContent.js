@@ -99,7 +99,7 @@ function WishContent() {
                     </span>
                     <span className={`${styles.priceUnit}`}>=</span>
                   </div>
-                  <div>
+                  <div className={`${styles.result}`}>
                     <span className={`${styles.total}`}>
                       {calculateTotal(recipe) + " €"}
                     </span>
