@@ -95,37 +95,35 @@ function WishContent() {
                 </div>
 
                 <div className={`${styles.box} d-flex `}>
-                  
-                    <div className={`${styles.firstCalcul} d-flex `}>
-                      <input
-                        value={quantities[recipe._id] || 0}
-                        onChange={(event) =>
-                          handleQuantityChange(event, recipe._id)
-                        }
-                        className={`${styles.quantitySelect}`}
-                        type="number"
-                      />
-                      <span className={`${styles.priceUnit}`}>x</span>
-                      <span className={`${styles.priceUnit}`}>
-                        {recipe.price}
-                      </span>
-                      <span className={`${styles.priceUnit}`}>=</span>
-                    </div>
-
-                    <span className={`${styles.total}`}>
-                      {calculateTotal(recipe) + " €"}
+                  <div className={`${styles.firstCalcul} d-flex `}>
+                    <input
+                      value={quantities[recipe._id] || 0}
+                      onChange={(event) =>
+                        handleQuantityChange(event, recipe._id)
+                      }
+                      className={`${styles.quantitySelect}`}
+                      type="number"
+                    />
+                    <span className={`${styles.priceUnit}`}>x</span>
+                    <span className={`${styles.priceUnit}`}>
+                      {recipe.price}
                     </span>
-                  
+                    <span className={`${styles.priceUnit}`}>=</span>
+                  </div>
+
+                  <span className={`${styles.total}`}>
+                    {calculateTotal(recipe) + " €"}
+                  </span>
                 </div>
               </li>
             ))}
           </ul>
           <div className={`${styles.validPrice} d-flex`}>
             <span className={`${styles.ens}`}>
-              Total = {calculateTotalGeneral()} €
+              Total {calculateTotalGeneral()} €
             </span>
             <button className={`${styles.btnValid} btn-primary`}>
-              Commander
+              Valider
             </button>
           </div>
         </div>

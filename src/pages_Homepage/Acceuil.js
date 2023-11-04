@@ -21,7 +21,7 @@ function Acceuil() {
           </p>
           {/* <span className={`${styles.priceIndice}`}>10 à 13 euros</span> */}
           <Link className={`${styles.linkPizzasPage}`} to="/recipes">
-            Recettes 10 à 13 €
+            Notre carte
           </Link>
         </div>
       </div>
