@@ -104,10 +104,10 @@ function WishContent() {
                       {calculateTotal(recipe) + " €"}
                     </span>
                     <button
-                      className={`${styles.btnDelete} btn-primary`}
+                      className={`${styles.btnDelete} btn-reverse-primary`}
                       onClick={() => handleRemoveItem(recipe._id)}
                     >
-                      Enlever
+                       X
                     </button>
                   </div>
                 </div>

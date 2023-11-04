@@ -37,19 +37,23 @@ h2 {
         justify-content: space-between;
 
         .result {
-        display: flex;
-        flex-direction: column;
-        margin: 0 0 0 0;
-        
+          display: flex;
+          // flex-direction: column;
+          
 
-        .btnDelete {
-          border-radius: 50px;
-          margin-left: 20px;
-          // height: 15px;
-          margin: 5px 0 5px  0;
+          .total {
+            margin: 0 0 0 10px ;
+            width: 80px;
+          }
+          .btnDelete {
+            border-radius: 50px;
+            // margin-left: 20px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            padding: 0;
+          }
         }
-        }
-        
       }
     }
 
