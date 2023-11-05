@@ -2,7 +2,7 @@
 
 main {
   background-image: url("/assets/images/wishContent.jpg");
-  background-size: contain; /* Vous pouvez ajuster "contain" à "cover" ou "50%" selon vos besoins */
+  background-size: cover; /* Vous pouvez ajuster "contain" à "cover" ou "50%" selon vos besoins */
   background-position: center; /* Vous pouvez ajuster la position si nécessaire */
 }
 
@@ -16,6 +16,9 @@ h2 {
   width: 90%;
   margin-bottom: 30px;
   padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  opacity: 0.8;
 
   .validPrice {
     .ens {
