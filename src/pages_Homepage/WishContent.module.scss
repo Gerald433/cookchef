@@ -1,16 +1,21 @@
 @use "../assets/styles/mixins" as mixin;
 
+main {
+  background-image: url("/assets/images/wishContent.jpg");
+  background-size: contain; /* Vous pouvez ajuster "contain" à "cover" ou "50%" selon vos besoins */
+  background-position: center; /* Vous pouvez ajuster la position si nécessaire */
+}
+
 h2 {
   margin: 30px;
 }
 
 .listTotal {
+  height: 10%;
+  bottom: 0;
   width: 90%;
-  border: 1px solid var(--gray-1);
-  border-radius: 20px;
   margin-bottom: 30px;
   padding: 20px;
-  background-color: white;
 
   .validPrice {
     .ens {
