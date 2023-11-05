@@ -3,7 +3,7 @@
 .header {
   position: fixed;
   background-color: white;
-  padding: 10px 50px;
+  padding: 10px 20px;
   box-shadow: var(--box-shadow-nav);
   color: var(--primary);
   z-index: 2;
@@ -11,7 +11,7 @@
   height: 80px;
 
   backdrop-filter: blur(8px); /* Ajoute un flou de 8 pixels à l'arrière-plan */
-  background-color: rgba(214, 26, 26, 0.8);
+  background-color: rgba(3, 0, 0, 0.8);
 
   img {
     width: 80px;
