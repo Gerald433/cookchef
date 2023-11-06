@@ -1,17 +1,12 @@
 @use "../assets/styles/mixins" as mixin;
 
-main {
-  background-image: url("/assets/images/wishContent.jpg");
-  background-size: cover; /* Vous pouvez ajuster "contain" à "cover" ou "50%" selon vos besoins */
-  background-position: center; /* Vous pouvez ajuster la position si nécessaire */
-}
+
 
 h2 {
   margin-top: 100px;
   margin-bottom: 30px;
   font-size: 35px;
   text-align: center;
-
 }
 
 .listTotal {
