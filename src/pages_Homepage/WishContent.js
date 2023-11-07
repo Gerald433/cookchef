@@ -74,7 +74,6 @@ function WishContent() {
     <div>
       <h2>Ma liste de souhaits</h2>
 
-
       <form
         action="POST"
         className="d-flex align-items-center justify-content-center"

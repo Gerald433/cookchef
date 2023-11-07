@@ -17,7 +17,7 @@ function Header() {
   }
 
   return (
-    <header className={`${styles.header} d-flex flex-row align-items-center `}>
+    <header className={`${styles.header} d-flex flex-row align-items-center container`}>
       <div className="flex-fill">
         <Link to={"/"}>
           <img src={logo} alt="logo du site" />
