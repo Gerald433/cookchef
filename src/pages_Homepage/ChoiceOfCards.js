@@ -4,24 +4,23 @@ import { Link } from "react-router-dom";
 function AChoiceOfCards() {
   return (
     <>
-    <div className={`${styles.globalBox} d-flex `} >
-    <Link to="/recipes">
-        <div>
-          <h2>Pizzas</h2>
-        </div>
-      </Link>
-      <Link>
-        <div>
-          <h2>Boissons</h2>
-        </div>
-      </Link>
-      <Link>
-        <div>
-          <h2>Desserts</h2>
-        </div>
-      </Link>
-    </div>
-      
+      <div className={`${styles.globalBox} d-flex container`}>
+        <Link to="/recipes" className={`${styles.cutInThree}`}>
+          <div>
+            <h2>Pizzas</h2>
+          </div>
+        </Link>
+        <Link className={`${styles.cutInThree}`}>
+          <div>
+            <h2>Boissons</h2>
+          </div>
+        </Link>
+        <Link className={`${styles.cutInThree}`}>
+          <div>
+            <h2>Desserts</h2>
+          </div>
+        </Link>
+      </div>
     </>
   );
 }

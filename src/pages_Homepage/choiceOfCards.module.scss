@@ -1,0 +1,12 @@
+.globalBox {
+  width: 100%;
+  height: 100vh;
+
+  .cutInThree {
+    display: flex;
+    width: 32%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+}
