@@ -9,4 +9,14 @@
     justify-content: center;
     height: 100%;
   }
+  .left {
+    border-left: 1px solid black;
+  }
+  .middleBox {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+  .right {
+    border-right: 1px solid black;
+  }
 }
