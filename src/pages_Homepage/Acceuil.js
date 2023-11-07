@@ -20,7 +20,7 @@ function Acceuil() {
             16h30 - 21h00
           </p>
           {/* <span className={`${styles.priceIndice}`}>10 à 13 euros</span> */}
-          <Link className={`${styles.linkPizzasPage}`} to="/recipes">
+          <Link className={`${styles.linkPizzasPage}`} to="/choice">
             Notre carte
           </Link>
         </div>

@@ -1,32 +1,29 @@
-import styles from "./Acceuil.module.scss";
+import styles from "./ChoiceOfCards.module.scss";
 import { Link } from "react-router-dom";
 
-function Acceuil() {
+function AChoiceOfCards() {
   return (
     <>
-      <div className={`${styles.container} container`}>
-        <img
-          className={`${styles.imgAccueil}`}
-          src="assets/images/imgAccueil.jpg"
-          alt="Fromage étiré d'une part de pizza"
-        />
-
+    <div className={`${styles.globalBox} d-flex `} >
+    <Link to="/recipes">
         <div>
-          <h1>Street - Pizza</h1>
-          <p className={`${styles.planning}`}>
-            A Sainte Sigolène, Les samedi et dimanche,
-            <br /> sur le parking de Carrefour Market.
-            <br />
-            16h30 - 21h00
-          </p>
-          {/* <span className={`${styles.priceIndice}`}>10 à 13 euros</span> */}
-          <Link className={`${styles.linkPizzasPage}`} to="/recipes">
-            Notre carte
-          </Link>
+          <h2>Pizzas</h2>
         </div>
-      </div>
+      </Link>
+      <Link>
+        <div>
+          <h2>Boissons</h2>
+        </div>
+      </Link>
+      <Link>
+        <div>
+          <h2>Desserts</h2>
+        </div>
+      </Link>
+    </div>
+      
     </>
   );
 }
 
-export default Acceuil;
+export default AChoiceOfCards;
