@@ -72,7 +72,7 @@ function WishContent() {
 
   return (
     <div>
-      <h2>Ma liste de souhaits</h2>
+      <h2 className={`${styles.wishTitle}`}>Ma liste de souhaits</h2>
 
       <form
         action="POST"
