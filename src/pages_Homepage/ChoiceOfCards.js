@@ -12,7 +12,7 @@ function AChoiceOfCards() {
               src="assets/images/pizzaChoice.jpg"
               alt="pizza de présentation"
             />
-            <h2 className={`${styles.titleBox}   d-flex `}>Pizzas</h2>
+            <h2 className={`${styles.titleBox}  ${styles.one} d-flex `}>Pizzas</h2>
           </div>
         </Link>
         <Link className={`${styles.cutInThree}  ${styles.middleBox} `}>
@@ -22,7 +22,7 @@ function AChoiceOfCards() {
               src="assets/images/sodaChoice.jpg"
               alt="pizza de présentation"
             />
-            <h2 className={`${styles.titleBox}   d-flex `}>Boissons</h2>
+            <h2 className={`${styles.titleBox} ${styles.two}  d-flex `}>Boissons</h2>
           </div>
         </Link>
         <Link className={`${styles.cutInThree}  ${styles.right} `}>
@@ -32,7 +32,7 @@ function AChoiceOfCards() {
               src="assets/images/dessertChoice.jpg"
               alt="pizza de présentation"
             />
-            <h2 className={`${styles.titleBox}   d-flex `}>Desserts</h2>
+            <h2 className={`${styles.titleBox}  ${styles.tree} d-flex `}>Desserts</h2>
           </div>
         </Link>
       </div>
