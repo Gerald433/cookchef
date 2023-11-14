@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function AChoiceOfCards() {
   return (
     <>
-      <div className={`${styles.globalBox}   d-flex container`}>
+      <div className={`${styles.globalBox}   d-flex container flex-column`}>
         <Link to="/recipes" className={`${styles.cutInThree}  ${styles.left} `}>
           <div className={`${styles.part}  d-flex flex-column`}>
             <img
