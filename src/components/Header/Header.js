@@ -16,6 +16,12 @@ function Header() {
     buttonText = "Recettes"; // Changer le texte pour la page Wishlist
   }
 
+  const showCardLink =
+    location.pathname === "/desserts" ||
+    location.pathname === "/wishlist" ||
+    location.pathname === "/recipes" ||
+    location.pathname === "/drinks";
+
   return (
     <header
       className={`${styles.header} d-flex flex-row align-items-center container`}
@@ -25,11 +31,13 @@ function Header() {
           <img src={logo} alt="logo du site" />
         </Link>
       </div>
-
-      <Link to="/choice" className={`${styles.wishList}`}>
-        <button className={`${styles.cardList} btn-primary`}><span>Les cartes</span></button>
-        
-      </Link>
+      {showCardLink && (
+        <Link to="/choice" className={`${styles.wishList}`}>
+          <button className={`${styles.cardList} btn-primary`}>
+            <span>Les cartes</span>
+          </button>
+        </Link>
+      )}
 
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
