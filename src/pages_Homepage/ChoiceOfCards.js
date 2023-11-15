@@ -29,7 +29,7 @@ function AChoiceOfCards() {
             </h2>
           </div>
         </Link>
-        <Link className={`${styles.cutInThree}  ${styles.right} `}>
+        <Link to="/desserts" className={`${styles.cutInThree}  ${styles.right} `}>
           <div className={`${styles.part}`}>
             <img
               className={`${styles.pictureChoice}   d-flex`}

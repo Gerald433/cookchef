@@ -12,6 +12,7 @@ import Content from "./pages_Homepage/Content";
 import ChoiceOfCards from "./pages_Homepage/ChoiceOfCards";
 import WishContent from "./pages_Homepage/WishContent";
 import Drinks from "./pages_Homepage/Drinks";
+import Desserts from "./pages_Homepage/Desserts";
 const root = createRoot(document.getElementById("root"));
 
 root.render(
@@ -63,6 +64,19 @@ root.render(
             <Header />
             <main>
               <Drinks />
+            </main>
+
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/desserts"
+        element={
+          <>
+            <Header />
+            <main>
+              <Desserts />
             </main>
 
             <Footer />
