@@ -36,7 +36,7 @@ export const data = [
   },
   {
     title: "Heineken",
-    image: "assets/images/chevre.jpg",
+    image: "assets/images/heineken.jpg",
     like: false,
     price: 3,
     _id: 80,

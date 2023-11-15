@@ -11,6 +11,7 @@ import Acceuil from "./pages_Homepage/Acceuil";
 import Content from "./pages_Homepage/Content";
 import ChoiceOfCards from "./pages_Homepage/ChoiceOfCards";
 import WishContent from "./pages_Homepage/WishContent";
+import Drinks from "./pages_Homepage/Drinks";
 const root = createRoot(document.getElementById("root"));
 
 root.render(
@@ -55,6 +56,20 @@ root.render(
           </>
         }
       />
+      <Route
+        path="/drinks"
+        element={
+          <>
+            <Header />
+            <main>
+              <Drinks />
+            </main>
+
+            <Footer />
+          </>
+        }
+      />
+
       <Route
         path="/wishlist"
         element={
