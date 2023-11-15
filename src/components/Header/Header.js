@@ -17,13 +17,20 @@ function Header() {
   }
 
   return (
-    <header className={`${styles.header} d-flex flex-row align-items-center container`}>
+    <header
+      className={`${styles.header} d-flex flex-row align-items-center container`}
+    >
       <div className="flex-fill">
         <Link to={"/"}>
           <img src={logo} alt="logo du site" />
         </Link>
       </div>
       <ul className={styles.headerList}>
+        <button className="mr-15 btn btn-primary">
+          <Link to="/choice" className={`${styles.wishList}`}>
+            <span>Les cartes</span>
+          </Link>
+        </button>
         <button className="mr-5 btn btn-reverse-primary">
           <i className="fa-sharp fa-solid fa-heart mr-5"></i>
           <Link className={`${styles.wishList}`} to={linkPath}>
