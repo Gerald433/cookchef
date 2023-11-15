@@ -2,8 +2,8 @@
 
 .header {
   position: fixed;
-margin: auto;
-  
+  margin: auto;
+
   background-color: white;
   padding: 10px 20px;
   box-shadow: var(--box-shadow-nav);
@@ -19,7 +19,12 @@ margin: auto;
     width: 80px;
   }
 }
-
+.cardList {
+  height: 70px;
+  margin-right: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 .headerList {
   @include mixin.xs {
     display: none;
