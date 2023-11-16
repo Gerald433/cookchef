@@ -1,6 +1,12 @@
 import styles from "./Header.module.scss";
 import logo from "../../assets/images/logo.jpg";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPizzaSlice,
+  faGlassWater,
+  faCookieBite,
+} from "@fortawesome/free-solid-svg-icons";
 import HeaderMenuXs from "./components_HeaderMenuXs/HeaderMenuXs/HeaderMenuXs";
 import { useLocation, Link } from "react-router-dom";
 
@@ -34,7 +40,20 @@ function Header() {
       {showCardLink && (
         <Link to="/choice" className={`${styles.wishList}`}>
           <button className={`${styles.cardList} btn-primary`}>
-            <span>Les cartes</span>
+            <FontAwesomeIcon
+              icon={faPizzaSlice}
+              className={`${styles.elementFood} ${styles.pizza}`}
+            />
+           
+            <FontAwesomeIcon
+              icon={faGlassWater}
+              className={`${styles.elementFood} ${styles.drinker} `}
+            />
+
+            <FontAwesomeIcon
+              icon={faCookieBite}
+              className={`${styles.elementFood} ${styles.cake}  `}
+            />
           </button>
         </Link>
       )}

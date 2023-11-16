@@ -20,10 +20,35 @@
   }
 }
 .cardList {
-  height: 70px;
+  position: relative;
+  height: 50px;
+  width: 50px;
   margin-right: 20px;
   border-radius: 50%;
   cursor: pointer;
+  // .elementFood {
+
+  // }
+  .pizza {
+    font-size: 35px;
+    position: absolute;
+    top: -16px;
+    left: 6px;
+    rotate: 315deg;
+  }
+  .drinker {
+    font-size: 25px;
+    position: absolute;
+    top: 23px;
+    left: 34px;
+    rotate: 120deg;
+  }
+  .cake {
+    font-size: 30px;
+    position: absolute;
+    top: 19px;
+    left: -12px;
+  }
 }
 .headerList {
   @include mixin.xs {
@@ -45,5 +70,27 @@
   }
   @include mixin.xs {
     display: block;
+  }
+}
+
+.cardList {
+  animation: rotateFast 1s linear forwards, rotateSlow infinite 60s linear;
+}
+
+@keyframes rotateFast {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes rotateSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
