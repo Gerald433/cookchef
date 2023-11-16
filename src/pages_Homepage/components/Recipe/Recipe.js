@@ -32,6 +32,7 @@ function Recipe({
         >
           <i className={`fa-solid fa-heart ${like ? "text-primary" : ""}`}></i>
           <p className={`${styles.price} `}>{price}</p>
+          <span>€</span>
         </div>
       </div>
       <div>
