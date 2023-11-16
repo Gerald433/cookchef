@@ -37,7 +37,7 @@ function Recipe({
       </div>
       <div>
         <button onClick={handleClick}>{like ? "Unlike" : "Like"}</button>
-        <button onClick={handleAddToWishList}>Add to Wishlist</button>
+        <button onClick={handleAddToWishList}>Ajouter</button>
       </div>
     </div>
   );
