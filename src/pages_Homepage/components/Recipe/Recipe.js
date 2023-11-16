@@ -8,7 +8,6 @@ function Recipe({
   removeFromWishListCallBack,
 }) {
   const [added, setAdded] = useState(false);
-  const [quantity, setQuantity] = useState(1);
 
   const handleClick = () => {
     updateLike(_id, !like);
@@ -19,17 +18,12 @@ function Recipe({
     console.log("removeFromWishListCallBack:", removeFromWishListCallBack);
 
     if (!added) {
-      addToWishListCallBack(_id, quantity);
+      addToWishListCallBack(_id);
     } else {
       removeFromWishListCallBack(_id);
     }
 
     setAdded(!added);
-  };
-
-  const handleQuantityChange = (event) => {
-    const newQuantity = parseInt(event.target.value, 10);
-    setQuantity(newQuantity);
   };
 
   return (
@@ -49,12 +43,10 @@ function Recipe({
           className={`${styles.under} d-flex justify-content-center align-items-center`}
         >
           <input
-            className={`${styles.quantitySelect} d-flex justify-content-center align-items-center `}
             type="number"
             id="exempleInput"
             name="exempleInput"
-            defaultValue={quantity}
-            onChange={handleQuantityChange}
+            className={`${styles.quantitySelect}`}
           />
           <span>X</span>
           <p className={`${styles.price} `}>{price}</p>

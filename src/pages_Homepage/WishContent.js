@@ -3,6 +3,12 @@ import styles from "./WishContent.module.scss";
 import * as Yup from "yup";
 
 function WishContent() {
+  const [receivedQuantity, setReceivedQuantity] = useState(0);
+
+  const updateReceivedQuantity = (quantity) => {
+    setReceivedQuantity(quantity);
+  };
+
   const calculateTotal = (recipe) => {
     const quantity = parseInt(quantities[recipe._id]) || 0;
     const price = parseFloat(recipe.price) || 0;
@@ -113,6 +119,7 @@ function WishContent() {
 
                 <div className={`${styles.box} d-flex `}>
                   <div className={`${styles.firstCalcul} d-flex `}>
+                    <span className={`${styles.recup} `}></span>
                     <input
                       value={quantities[recipe._id] || 0}
                       onChange={(event) =>

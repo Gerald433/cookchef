@@ -33,12 +33,7 @@ function Content() {
     setAdded(false); // Mettez à jour l'état du bouton
   }
 
-  function handleRecipeClick(recipeId) {
-    const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
-    if (selectedRecipe) {
-      setSelectedRecipe(selectedRecipe);
-    }
-  }
+  
   function addToWishListCallBack(recipeId) {
     const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
     const currentWishList = JSON.parse(localStorage.getItem("wishList")) || [];
