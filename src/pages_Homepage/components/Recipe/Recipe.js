@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import styles from "./Recipe.module.scss";
 
 function Recipe({
@@ -6,12 +6,15 @@ function Recipe({
   updateLike,
   addToWishListCallBack,
 }) {
+  const [added, setAdded] = useState(false);
+
   const handleClick = () => {
     updateLike(_id, !like);
   };
 
   const handleAddToWishList = () => {
     addToWishListCallBack(_id);
+    setAdded(true);
   };
 
   return (
@@ -36,8 +39,14 @@ function Recipe({
         </div>
       </div>
       <div>
-        <button onClick={handleClick}>{like ? "Unlike" : "Like"}</button>
-        <button onClick={handleAddToWishList}>Ajouter</button>
+        {/* <button onClick={handleClick}>{like ? "Unlike" : "Like"}</button> */}
+        <button
+          onClick={handleAddToWishList}
+          className={`${styles.add} btn-primary`}
+          disabled={added}
+        >
+          {added ? "C'est noté" : "Ajouter"}
+        </button>
       </div>
     </div>
   );
