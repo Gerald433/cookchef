@@ -14,13 +14,7 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const location = useLocation();
-  let linkPath = "/wishlist"; // par défaut, le lien pointe vers la page Wishlist
-  let buttonText = "Wishlist"; // Texte par défaut pour le bouton
-
-  if (location.pathname === "/wishlist") {
-    linkPath = "/recipes"; // Changer le lien pour la page Wishlist
-    buttonText = "Recettes"; // Changer le texte pour la page Wishlist
-  }
+  
 
   const showCardLink =
     location.pathname === "/desserts" ||
@@ -60,9 +54,9 @@ function Header() {
 
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
-          <i className="fa-sharp fa-solid fa-heart mr-5"></i>
-          <Link className={`${styles.wishList}`} to={linkPath}>
-            <span>{buttonText}</span>
+          
+          <Link className={`${styles.wishList}`} to={"/wishlist"}>
+            <span>Panier</span>
           </Link>
         </button>
         <button className="btn btn-primary">Connexion</button>
