@@ -21,12 +21,35 @@ function WishContent() {
     return totalGeneral.toFixed(2); // Pour arrondir le total général à 2 décimales
   };
 
+  const removeFromWishListCallBack = (recipeId) => {
+    // Filtrer la liste de souhaits pour exclure l'élément à supprimer
+    const updatedWishList = wishList.filter(
+      (recipe) => recipe._id !== recipeId
+    );
+
+    // Mettre à jour la liste de souhaits dans le state et dans le localStorage
+    setWishList(updatedWishList);
+    localStorage.setItem("wishList", JSON.stringify(updatedWishList));
+    // Réinitialiser la quantité de la recette supprimée à zéro dans le state
+    const newQuantities = { ...quantities };
+    newQuantities[recipeId] = 0;
+    setQuantities(newQuantities);
+    // Enregistrez la nouvelle quantité dans le localStorage ici
+  };
+
+
+
+
+
+
+  
   const handleRemoveItem = (recipeId) => {
     // Filtrer la liste de souhaits pour exclure l'élément à supprimer
     const updatedWishList = wishList.filter(
       (recipe) => recipe._id !== recipeId
     );
 
+    
     // Mettre à jour la liste de souhaits dans le state et dans le localStorage
     setWishList(updatedWishList);
     localStorage.setItem("wishList", JSON.stringify(updatedWishList));
@@ -89,7 +112,7 @@ function WishContent() {
                   </span>
                   <div
                     className={`${styles.btnDelete} d-flex justify-content-center align-items-center   btn-reverse-primary`}
-                    onClick={() => handleRemoveItem(recipe._id)}
+                    onClick={() => removeFromWishListCallBack(recipe._id)}
                   >
                     -
                   </div>

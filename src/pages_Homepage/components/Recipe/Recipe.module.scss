@@ -47,7 +47,6 @@
 }
 
 .imageContainer {
-
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   overflow: hidden;
@@ -56,7 +55,7 @@
     height: 420px;
     object-fit: cover;
     transition: 1s transform;
-  
+
     @include mixin.xs {
       height: 320px;
     }
@@ -71,6 +70,14 @@
   border-bottom-right-radius: 20px;
 }
 
-// .add{
-//   background-color: black;
-// }
+.add {
+  // Vos styles existants
+  // ...
+
+  &.disabled {
+    // Styles pour le bouton désactivé
+    // Par exemple, vous pouvez ajouter une opacité ou d'autres styles de votre choix
+    opacity: 0.5;
+    // cursor: not-allowed;
+  }
+}

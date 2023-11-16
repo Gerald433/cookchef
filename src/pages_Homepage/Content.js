@@ -22,11 +22,21 @@ function Content({ setSelectedRecipe }) {
     );
   }
 
+  function removeFromWishListCallBack(recipeId) {
+    const updatedWishList = wishList.filter((recipe) => recipe._id !== recipeId);
+
+  // Mettre à jour la liste de souhaits dans le state et dans le localStorage
+  setWishList(updatedWishList);
+  localStorage.setItem("wishList", JSON.stringify(updatedWishList));
+  }
+
   function handleRecipeClick(recipeId) {
     const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
     setSelectedRecipe(selectedRecipe);
   }
 
+
+  
   function addToWishListCallBack(recipeId) {
     const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
 
@@ -80,6 +90,7 @@ function Content({ setSelectedRecipe }) {
                   recipe={r}
                   updateLike={updateLike}
                   addToWishListCallBack={addToWishListCallBack}
+                  removeFromWishListCallBack={removeFromWishListCallBack}
                 />
               ))}
           </div>

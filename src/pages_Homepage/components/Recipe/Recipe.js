@@ -5,6 +5,7 @@ function Recipe({
   recipe: { _id, like, title, image, price },
   updateLike,
   addToWishListCallBack,
+  removeFromWishListCallBack,
 }) {
   const [added, setAdded] = useState(false);
 
@@ -13,8 +14,16 @@ function Recipe({
   };
 
   const handleAddToWishList = () => {
-    addToWishListCallBack(_id);
-    setAdded(true);
+    console.log("addToWishListCallBack:", addToWishListCallBack);
+    console.log("removeFromWishListCallBack:", removeFromWishListCallBack);
+
+    if (!added) {
+      addToWishListCallBack(_id);
+    } else {
+      removeFromWishListCallBack(_id);
+    }
+
+    setAdded(!added);
   };
 
   return (
@@ -42,8 +51,10 @@ function Recipe({
         {/* <button onClick={handleClick}>{like ? "Unlike" : "Like"}</button> */}
         <button
           onClick={handleAddToWishList}
-          className={`${styles.add} btn-primary`}
-          disabled={added}
+          className={`${styles.add} ${
+            added ? styles.disabled : ""
+          } btn-primary`}
+          // disabled={added} // Désactive le bouton si l'élément a déjà été ajouté
         >
           {added ? "C'est noté" : "Ajouter"}
         </button>
