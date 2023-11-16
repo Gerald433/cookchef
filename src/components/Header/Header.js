@@ -44,7 +44,7 @@ function Header() {
               icon={faPizzaSlice}
               className={`${styles.elementFood} ${styles.pizza}`}
             />
-           
+
             <FontAwesomeIcon
               icon={faGlassWater}
               className={`${styles.elementFood} ${styles.drinker} `}
