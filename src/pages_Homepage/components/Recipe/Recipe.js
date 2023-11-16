@@ -53,7 +53,7 @@ function Recipe({
             type="number"
             id="exempleInput"
             name="exempleInput"
-            value={quantity}
+            defaultValue={quantity}
             onChange={handleQuantityChange}
           />
           <span>X</span>
