@@ -39,23 +39,39 @@
         font-size: 48px;
         text-align: center;
         color: var(--gray-1);
+
+        @include mixin.xs {
+          font-size: 28px;
+        }
       }
       .one {
         position: absolute;
         top: 194px;
         left: 20%;
+        @include mixin.xs {
+          top: 194px;
+          left: 3%;
+        }
       }
 
       .two {
         position: absolute;
         top: 480px;
         right: 20%;
+        @include mixin.xs {
+          top: 480px;
+          right: 3%;
+        }
       }
 
       .tree {
         position: absolute;
         top: 801px;
         left: 20%;
+        @include mixin.xs {
+          top: 801px;
+          left: 3%;
+        }
       }
     }
   }
