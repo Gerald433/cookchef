@@ -5,7 +5,6 @@ function Recipe({
   recipe: { _id, like, title, image, price },
   updateLike,
   addToWishListCallBack,
-  
 }) {
   const handleClick = () => {
     updateLike(_id, !like);
