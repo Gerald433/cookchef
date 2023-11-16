@@ -43,7 +43,7 @@ function Recipe({
         <div
           className={`${styles.under} d-flex justify-content-center align-items-center`}
         >
-          <i className={`fa-solid fa-heart ${like ? "text-primary" : ""}`}></i>
+         
           <p className={`${styles.price} `}>{price}</p>
           <span>€</span>
         </div>
