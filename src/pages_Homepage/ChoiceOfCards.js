@@ -37,7 +37,7 @@ function AChoiceOfCards() {
               alt="pizza de présentation"
             />
             <h2 className={`${styles.titleBox}  ${styles.tree} d-flex `}>
-              Crunch Crunch
+              Wouuhaa !!
             </h2>
           </div>
         </Link>

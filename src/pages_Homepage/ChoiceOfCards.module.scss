@@ -46,10 +46,10 @@
       }
       .one {
         position: absolute;
-        top: 194px;
-        left: 20%;
+        top: 127px;
+        left: 10%;
         @include mixin.xs {
-          top: 194px;
+          top: 127px;
           left: 3%;
         }
       }
@@ -57,7 +57,7 @@
       .two {
         position: absolute;
         top: 480px;
-        right: 20%;
+        right: 10%;
         @include mixin.xs {
           top: 480px;
           right: 3%;
@@ -66,10 +66,10 @@
 
       .tree {
         position: absolute;
-        top: 801px;
-        left: 20%;
+        top: 726px;
+        left: 10%;
         @include mixin.xs {
-          top: 801px;
+          top: 726px;
           left: 3%;
         }
       }
