@@ -19,6 +19,7 @@ function Recipe({
 
     if (!added) {
       addToWishListCallBack(_id);
+      
     } else {
       removeFromWishListCallBack(_id);
     }
