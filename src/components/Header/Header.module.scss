@@ -23,7 +23,7 @@
   position: relative;
   height: 50px;
   width: 50px;
-  margin-right: 20px;
+  margin-right: 45px;
   border-radius: 50%;
   cursor: pointer;
   // .elementFood {
@@ -74,22 +74,20 @@
 }
 
 .cardList {
-  animation: rotateFast 1s linear forwards, rotateSlow infinite 60s linear;
-}
+  animation: rotateForever 30s linear infinite;
+  &:hover {
+    
+    color: var(--primary);
+    background-color: white;
 
-@keyframes rotateFast {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(720deg);
   }
 }
 
-@keyframes rotateSlow {
+@keyframes rotateForever {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
