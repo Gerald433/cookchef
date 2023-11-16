@@ -88,7 +88,7 @@ function WishContent() {
 
   return (
     <div>
-      <h2 className={`${styles.wishTitle}`}>Ma liste de souhaits</h2>
+      <h2 className={`${styles.wishTitle}`}>Mon Panier</h2>
 
       <form
         action="POST"
