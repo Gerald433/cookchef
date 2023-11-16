@@ -24,7 +24,7 @@ function Header() {
 
   const showCardLink =
     location.pathname === "/desserts" ||
-    location.pathname === "/wi" ||
+    location.pathname === "/wishlist" ||
     location.pathname === "/recipes" ||
     location.pathname === "/drinks";
 
