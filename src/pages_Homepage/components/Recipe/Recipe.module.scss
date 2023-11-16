@@ -28,17 +28,32 @@
 
   .under {
     text-align: center;
-    gap: 30px;
-    height: 50px;
-    margin-bottom: 10px;
+    gap: 3px;
+    // height: 50px;
+    // margin-bottom: 10px;
 
+
+    .quantitySelect{
+      border: var(--gray-1) 2px solid;
+      background-color: var(--primary);
+      font-family: "Agbalumo", sans-serif;
+      font-size: 22px;
+      border-radius: 15px;
+      width: 55px;
+      height: 31px;
+      text-align: center;
+      padding-bottom: 7px;
+      
+      
+      
+    }
     .price {
       text-align: center;
       padding-bottom: 5px;
       font-size: 22px;
       background-color: white;
 
-      width: 60px;
+      width: 45px;
       border: 3px solid var(--primary);
       border-radius: 50px;
       margin: 0;
@@ -63,21 +78,24 @@
 }
 
 .recipeTitle {
-  height: 100px;
+  // height: 100px;
   transition: 0.2s color;
   border: 1px solid var(--gray-2);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 
-.add {
-  // Vos styles existants
-  // ...
+.addGeneral {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  .add {
+    border-radius: 15px;
 
-  &.disabled {
-    // Styles pour le bouton désactivé
-    // Par exemple, vous pouvez ajouter une opacité ou d'autres styles de votre choix
-    opacity: 0.5;
-    // cursor: not-allowed;
+    &.disabled {
+      // Styles pour le bouton désactivé
+      // Par exemple, vous pouvez ajouter une opacité ou d'autres styles de votre choix
+      opacity: 0.5;
+      // cursor: not-allowed;
+    }
   }
 }
