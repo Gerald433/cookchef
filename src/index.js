@@ -3,6 +3,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { ReactDOM } from "react-dom";
 import "./assets/styles/index.scss";
+import Connexion from "./pages_Homepage/Connexion";
 
 import reportWebVitals from "./reportWebVitals";
 import Header from "./components/Header/Header";
@@ -91,6 +92,20 @@ root.render(
             <Header />
             <main>
               <WishContent />
+            </main>
+
+            <Footer />
+          </>
+        }
+      />
+
+      <Route
+        path="/connexion"
+        element={
+          <>
+            <Header />
+            <main>
+              <Connexion />
             </main>
 
             <Footer />
