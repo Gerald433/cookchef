@@ -15,6 +15,10 @@
   backdrop-filter: blur(8px); /* Ajoute un flou de 8 pixels à l'arrière-plan */
   background-color: rgba(3, 0, 0, 0.8);
 
+.basket{
+  color: var(--primary);
+}
+
   img {
     width: 80px;
     border-radius: 50px;

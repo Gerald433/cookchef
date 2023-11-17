@@ -6,6 +6,7 @@ import {
   faPizzaSlice,
   faGlassWater,
   faCookieBite,
+  faBasketShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import HeaderMenuXs from "./components_HeaderMenuXs/HeaderMenuXs/HeaderMenuXs";
 import { useLocation, Link } from "react-router-dom";
@@ -14,7 +15,6 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const location = useLocation();
-  
 
   const showCardLink =
     location.pathname === "/desserts" ||
@@ -54,9 +54,11 @@ function Header() {
 
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
-          
           <Link className={`${styles.wishList}`} to={"/wishlist"}>
-            <span>Panier</span>
+            <span>
+              <FontAwesomeIcon icon={faBasketShopping}
+              className={`${styles.basket}`} /> Panier
+            </span>
           </Link>
         </button>
         <button className="btn btn-primary">Connexion</button>
