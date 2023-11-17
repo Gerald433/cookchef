@@ -3,15 +3,11 @@ import styles from "./Recipe.module.scss";
 
 function Recipe({
   recipe: { _id, like, title, image, price },
-  updateLike,
+
   addToWishListCallBack,
   removeFromWishListCallBack,
 }) {
   const [added, setAdded] = useState(false);
-
-  const handleClick = () => {
-    updateLike(_id, !like);
-  };
 
   const handleAddToWishList = () => {
     console.log("addToWishListCallBack:", addToWishListCallBack);
@@ -27,7 +23,7 @@ function Recipe({
   };
 
   return (
-    <div onClick={handleClick} className={styles.recipe}>
+    <div className={styles.recipe}>
       <div className={styles.imageContainer}>
         <img src={image} alt={title} className={`${styles.imgRecipe} `} />
       </div>
@@ -35,10 +31,7 @@ function Recipe({
       <div
         className={`${styles.recipeTitle} d-flex flex-column justify-content-center align-items-center`}
       >
-        <div>
-          <h3 className="mb-10">{title}</h3>
-        </div>
-
+        <h3 className="mb-10">{title}</h3>
         <div
           className={`${styles.under} d-flex justify-content-center align-items-center`}
         >
@@ -54,7 +47,7 @@ function Recipe({
         </div>
       </div>
       <div className={`${styles.addGeneral} d-flex justify-content-center`}>
-        {/* <button onClick={handleClick}>{like ? "Unlike" : "Like"}</button> */}
+       
         <button
           onClick={handleAddToWishList}
           className={`${styles.add} ${
