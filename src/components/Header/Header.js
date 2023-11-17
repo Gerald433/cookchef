@@ -20,6 +20,7 @@ function Header() {
     location.pathname === "/desserts" ||
     location.pathname === "/wishlist" ||
     location.pathname === "/recipes" ||
+    location.pathname === "/connexion" ||
     location.pathname === "/drinks";
 
   return (
@@ -56,12 +57,17 @@ function Header() {
         <button className="mr-5 btn btn-reverse-primary">
           <Link className={`${styles.wishList}`} to={"/wishlist"}>
             <span>
-              <FontAwesomeIcon icon={faBasketShopping}
-              className={`${styles.basket}`} /> Panier
+              <FontAwesomeIcon
+                icon={faBasketShopping}
+                className={`${styles.basket}`}
+              />{" "}
+              Panier
             </span>
           </Link>
         </button>
-        <button className="btn btn-primary">Connexion</button>
+        <button className="btn btn-primary">
+          <Link to={"/connexion"}>Connexion</Link>
+        </button>
       </ul>
       <i
         onClick={() => setShowMenu(true)}
