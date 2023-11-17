@@ -1,13 +1,24 @@
 import { useState } from "react";
 import styles from "./Recipe.module.scss";
+import PropTypes from "prop-types";
 
 function Recipe({
-  recipe: { _id, like, title, image, price },
+  recipe,
 
   addToWishListCallBack,
   removeFromWishListCallBack,
+  updateReceivedQuantity,
 }) {
   const [added, setAdded] = useState(false);
+  const [selectedQuantity, setSelectedQuantity] = useState(0);
+  const { _id, image, title, price } = recipe;
+  const handleQuantityChange = (event) => {
+    const value = parseInt(event.target.value);
+    setSelectedQuantity(value);
+    if (typeof updateReceivedQuantity === "function") {
+      updateReceivedQuantity(value);
+    }
+  };
 
   const handleAddToWishList = () => {
     console.log("addToWishListCallBack:", addToWishListCallBack);
@@ -18,6 +29,16 @@ function Recipe({
     } else {
       removeFromWishListCallBack(_id);
     }
+
+    // Mettre à jour le stockage local avec la quantité sélectionnée
+    const existingQuantities =
+      JSON.parse(localStorage.getItem("quantities")) || {};
+
+    // Mettre à jour la quantité pour la recette actuelle
+    existingQuantities[_id] = selectedQuantity;
+
+    // Sauvegarder les quantités mises à jour dans le stockage local
+    localStorage.setItem("quantities", JSON.stringify(existingQuantities));
 
     setAdded(!added);
   };
@@ -40,6 +61,8 @@ function Recipe({
             id="exempleInput"
             name="exempleInput"
             className={`${styles.quantitySelect}`}
+            value={selectedQuantity}
+            onChange={handleQuantityChange}
           />
           <span>X</span>
           <p className={`${styles.price} `}>{price}</p>
@@ -47,7 +70,6 @@ function Recipe({
         </div>
       </div>
       <div className={`${styles.addGeneral} d-flex justify-content-center`}>
-       
         <button
           onClick={handleAddToWishList}
           className={`${styles.add} ${
@@ -61,5 +83,18 @@ function Recipe({
     </div>
   );
 }
+
+Recipe.propTypes = {
+  recipe: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    like: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+  addToWishListCallBack: PropTypes.func.isRequired,
+  removeFromWishListCallBack: PropTypes.func.isRequired,
+  updateReceivedQuantity: PropTypes.func.isRequired,
+};
 
 export default Recipe;

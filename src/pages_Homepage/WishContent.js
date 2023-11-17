@@ -82,8 +82,13 @@ function WishContent() {
     }
   };
 
+
+
+
+
   // Fetch wishList and quantities from localStorage on component mount
   useEffect(() => {
+    
     const storedWishList = JSON.parse(localStorage.getItem("wishList")) || [];
     setWishList(storedWishList);
 
@@ -119,18 +124,11 @@ function WishContent() {
 
                 <div className={`${styles.box} d-flex `}>
                   <div className={`${styles.firstCalcul} d-flex `}>
-                    <span className={`${styles.recup} `}></span>
-                    <input
-                      value={quantities[recipe._id] || 0}
-                      onChange={(event) =>
-                        handleQuantityChange(event, recipe._id)
-                      }
-                      className={`${styles.quantitySelect}`}
-                      type="number"
-                    />
+                    <span className={`${styles.recup} `}>Nbre {updateReceivedQuantity}</span>
+
                     <span className={`${styles.priceUnit}`}>x</span>
                     <span className={`${styles.priceUnit}`}>
-                      {recipe.price}
+                      {recipe.price} €
                     </span>
                     <span className={`${styles.priceUnit}`}>=</span>
                   </div>

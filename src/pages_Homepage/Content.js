@@ -33,7 +33,6 @@ function Content() {
     setAdded(false); // Mettez à jour l'état du bouton
   }
 
-  
   function addToWishListCallBack(recipeId) {
     const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
     const currentWishList = JSON.parse(localStorage.getItem("wishList")) || [];
@@ -46,6 +45,11 @@ function Content() {
       setAdded(true); // Mettez à jour l'état du bouton
     }
   }
+
+  function updateReceivedQuantity (quantity) {
+    console.log(`Received Quantity Updated: ${quantity}`);
+    // Faites ce que vous devez avec la nouvelle quantité dans le composant parent
+  };
 
   // function addToWishListCallBack(recipeId) {
   //   const selectedRecipe = recipes.find((recipe) => recipe._id === recipeId);
@@ -90,6 +94,7 @@ function Content() {
                   addToWishListCallBack={addToWishListCallBack}
                   removeFromWishListCallBack={removeFromWishListCallBack}
                   added={wishList.some((recipe) => recipe._id === r._id)}
+                  updateReceivedQuantity={updateReceivedQuantity} // Utilisez le nom correct de la fonction ici
                 />
               ))}
           </div>
