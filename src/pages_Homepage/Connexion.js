@@ -113,11 +113,13 @@ function Connexion({ setIsSubmitted, isSubmitted }) {
           <button onClick={resetForm}>Retour</button>
         </Link>
       ) : (
+        
         <form
           onSubmit={formik.handleSubmit}
           className="d-flex flex-column align-items-center"
         >
           <div className={`${styles.formSection}`}>
+            <h2>Nouveau Client</h2>
             <label htmlFor="nameInput">Nom</label>
             <br />
             <input
