@@ -1,69 +1,227 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import React, { useState, useEffect } from "react";
+import { Formik, useFormik } from "formik";
+import * as Yup from "yup";
 import styles from "./Connexion.module.scss";
+// import vector from "../../assets/images/Vector.svg";
 import { Link } from "react-router-dom";
 
-const schema = yup.object().shape({
-  nom: yup.string().required("Le nom est requis"),
-  prenom: yup.string().required("Le prénom est requis"),
-  dateNaissance: yup.string().required("La date de naissance est requise"),
-  adresse: yup.string().required("L'adresse est requise"),
-  codePostal: yup.string().required("Le code postal est requis"),
-  ville: yup.string().required("La ville est requise"),
-  telephone: yup.string().required("Le telephone est requis"),
-  mail: yup.string().required("L'adresse mail est requise"),
-  motDePasse: yup.string().required("Le mot de passe est requis"),
-  confirmationMotDePasse: yup
-    .string()
-    .oneOf(
-      [yup.ref("motDePasse"), null],
-      "Les mots de passe doivent correspondre"
-    )
-    .required("La confirmation du mot de passe est requise"),
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .max(25, "Votre saisie ne peut pas dépasser 25 caractères")
+    .required("Votre nom est requis"),
+
+  firstname: Yup.string()
+    .max(25, "Votre saisie ne peut pas dépasser 25 caractères")
+    .required("Votre prénom est requis"),
+
+  email: Yup.string()
+    .email("Adresse e-mail invalide")
+    .required("Votre e-mail est requis"),
+  subject: Yup.string().required("Le sujet est requis"),
+  message: Yup.string().required("Votre message est requis"),
 });
 
-function Connexion() {
-  const { register, handleSubmit, errors } = useForm({
-    resolver: yupResolver(schema),
+function Connexion({ setIsSubmitted, isSubmitted }) {
+  // const [isSubmitted, setIsSubmitted] = useState(false);
+  // Utilisation de useFormik pour gérer le formulaire
+
+  const [formValues, setFormValues] = useState({
+    name: "",
+    firstname: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
-  const onSubmit = (data) => {
-    // La soumission du formulaire a réussi, utilisez les données comme nécessaire
-    console.log("Formulaire soumis :", data);
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      firstname: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+
+    onSubmit: async (values) => {
+      const data = new FormData();
+      data.append("email", values.email);
+      data.append("message", values.message);
+      data.append("name", values.name);
+      data.append("firstname", values.name);
+      data.append("subject", values.subject);
+      // fetch("https://formspree.io/f/xleyovdq", {
+      //   method: "post",
+      //   body: data,
+      //   headers: {
+      //     Accept: "application/json",
+      //   },
+      // })
+      //   .then(() => {
+      //     // Mettre à jour l'état pour indiquer que le formulaire a été soumis avec succès.
+      //     setIsSubmitted(true);
+      //   })
+      //   .catch((error) => {
+      //     // Gérer les erreurs d'envoi du formulaire ici
+      //     console.error("Erreur lors de l'envoi du formulaire :", error);
+      //   });
+    },
+  });
+
+  // Fonction pour réinitialiser le formulaire
+  const resetForm = () => {
+    setFormValues({
+      name: "",
+      firstname: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    setIsSubmitted(false); // Réinitialiser l'état isSubmitted à false
   };
+  useEffect(() => {
+    // Ajustez la hauteur du textarea en fonction de son contenu lors du chargement initial de la page
+    const textareas = document.querySelectorAll("textarea");
+    textareas.forEach((textarea) => {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    });
+
+    // Ajustez la hauteur du textarea à chaque modification du contenu
+    const adjustTextareaHeight = (event) => {
+      const textarea = event.target;
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    };
+
+    textareas.forEach((textarea) => {
+      textarea.addEventListener("input", adjustTextareaHeight);
+    });
+
+    // Nettoyez les écouteurs d'événements lors du démontage du composant
+    return () => {
+      textareas.forEach((textarea) => {
+        textarea.removeEventListener("input", adjustTextareaHeight);
+      });
+    };
+  }, []);
 
   return (
-    <>
-      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="nom">
-          Nom:
-          <input type="text" name="nom" ref={register} />
-          {errors && errors.nom && <p>{errors.nom.message}</p>}
-        </label>
-        <label htmlFor="prenom">
-          Prenom:
-          <input type="text" name="prenom" ref={register} />
-          {errors && errors.prenom && <p>{errors.prenom.message}</p>}
-        </label>
-        {/* <label htmlFor="dateNaissance">
-          Date de naissance :
-          <input type="text" name="dateNaissance" ref={register} />
-          {errors && errors.dateNaissance && (
-            <p>{errors.dateNaissance.message}</p>
-          )}
-        </label>
-       
-        <label htmlFor="adresse">
-          Adresse:
-          <input type="text" name="adresse" ref={register} />
-          {errors && errors.adresse && <p>{errors.adresse.message}</p>}
-        </label> */}
+    <div>
+      {isSubmitted ? (
+        <Link to="/contact">
+          <button onClick={resetForm}>Retour</button>
+        </Link>
+      ) : (
+        <form
+          onSubmit={formik.handleSubmit}
+          className="d-flex flex-column align-items-center"
+        >
+          <div className={`${styles.formSection}`}>
+            <label htmlFor="nameInput">Nom</label>
+            <br />
+            <input
+              type="text"
+              id="nameInput"
+              name="name"
+              value={formik.values.name}
+              onChange={(e) => {
+                formik.handleChange(e);
+                setFormValues({ ...formValues, name: e.target.value });
+              }}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.name && formik.errors.name ? (
+              <div className={`${styles.error}`}>{formik.errors.name}</div>
+            ) : null}
+          </div>
+          <div className={`${styles.formSection}`}>
+            <label htmlFor="nameInput">Prénom</label>
+            <br />
+            <input
+              type="text"
+              id="nameInput"
+              name="firstname"
+              value={formik.values.name}
+              onChange={(e) => {
+                formik.handleChange(e);
+                setFormValues({ ...formValues, name: e.target.value });
+              }}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.firstname && formik.errors.firstname ? (
+              <div className={`${styles.error}`}>{formik.errors.firstname}</div>
+            ) : null}
+          </div>
 
-        <button type="submit">Valider</button>
-      </form>
-    </>
+          <div className={`${styles.formSection}`}>
+            <label htmlFor="mail">Votre E-mail</label>
+            <br />
+            <input
+              type="text"
+              id="mail"
+              name="email"
+              value={formik.values.email}
+              onChange={(e) => {
+                formik.handleChange(e);
+                setFormValues({ ...formValues, email: e.target.value });
+              }}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div className={`${styles.error}`}>{formik.errors.email}</div>
+            ) : null}
+          </div>
+
+          <div className={`${styles.formSection}`}>
+            <label htmlFor="subject">Sujet de votre message</label>
+            <br />
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formik.values.subject}
+              onChange={(e) => {
+                formik.handleChange(e);
+                setFormValues({ ...formValues, subject: e.target.value });
+              }}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.subject && formik.errors.subject ? (
+              <div className={`${styles.error}`}>{formik.errors.subject}</div>
+            ) : null}
+          </div>
+
+          <div className={`${styles.formSection}`}>
+            <label htmlFor="message">Votre message ici</label>
+            <br />
+
+            <textarea
+              id="message"
+              name="message"
+              value={formik.values.message}
+              onChange={(e) => {
+                formik.handleChange(e);
+                setFormValues({ ...formValues, message: e.target.value });
+              }}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.message && formik.errors.message ? (
+              <div className={`${styles.error}`}>{formik.errors.message}</div>
+            ) : null}
+          </div>
+
+          <button type="submit">
+            Envoyer
+            <img
+              className={`${styles.vector}`}
+              // src={vector}
+              alt="icone d'envoi de message"
+            />
+          </button>
+        </form>
+      )}
+    </div>
   );
 }
 
