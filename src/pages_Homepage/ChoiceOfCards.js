@@ -13,7 +13,7 @@ function AChoiceOfCards() {
               alt="pizza de présentation"
             />
             <h2 className={`${styles.titleBox}  ${styles.one} d-flex `}>
-              Miam Miam
+              Recettes
             </h2>
           </div>
         </Link>
@@ -28,7 +28,7 @@ function AChoiceOfCards() {
               alt="pizza de présentation"
             />
             <h2 className={`${styles.titleBox} ${styles.two}  d-flex `}>
-              Glou Glou
+              Boissons
             </h2>
           </div>
         </Link>
@@ -43,7 +43,7 @@ function AChoiceOfCards() {
               alt="pizza de présentation"
             />
             <h2 className={`${styles.titleBox}  ${styles.tree} d-flex `}>
-              Wouuhaa !!
+              Desserts
             </h2>
           </div>
         </Link>
