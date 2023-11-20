@@ -1,0 +1,150 @@
+{
+  "recipes": [
+    {
+      "title": "Jambon Champignon",
+      "image": "assets/images/jambon_champignon.jpg",
+      "like": "false",
+      "price": "10",
+      "_id": "1"
+    },
+    {
+      "title": "4 Fromages",
+      "image": "assets/images/4fromages.jpg",
+      "like": "false",
+      "price": "11",
+      "_id": "2"
+    },
+    {
+      "title": "Campagnarde",
+      "image": "assets/images/campagnarde.jpg",
+      "like": "false",
+      "price": "12",
+      "_id": "3"
+    },
+    {
+      "title": "Chorizo",
+      "image": "assets/images/chorizo.jpg",
+      "like": "false",
+      "price": "13",
+      "_id": "4"
+    },
+    {
+      "title": "Royale",
+      "image": "assets/images/laRoyale.jpg",
+      "like": "false",
+      "price": "10",
+      "_id": "5"
+    },
+    {
+      "title": "Provençale",
+      "image": "assets/images/provencale.jpg",
+      "like": "false",
+      "price": "11",
+      "_id": "6"
+    },
+    {
+      "title": "Vegan",
+      "image": "assets/images/vegan.jpg",
+      "like": "false",
+      "price": "12",
+      "_id": "7"
+    },
+    {
+      "title": "Chèvre",
+      "image": "assets/images/chevre.jpg",
+      "like": "false",
+      "price": "13",
+      "_id": "8"
+    }
+  ],
+
+  "drinks": [
+    {
+      "title": "Coca-Cola",
+      "image": "assets/images/coca.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "10"
+    },
+    {
+      "title": "Coca zero",
+      "image": "assets/images/cocaZero.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "20"
+    },
+    {
+      "title": "Schweppes",
+      "image": "assets/images/schweppes.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "30"
+    },
+    {
+      "title": "Perrier",
+      "image": "assets/images/perrier.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "40"
+    },
+    {
+      "title": "Red bull",
+      "image": "assets/images/redBull.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "70"
+    },
+    {
+      "title": "Heineken",
+      "image": "assets/images/heineken.jpg",
+      "like": "false",
+      "price": "3",
+      "_id": "80"
+    }
+  ],
+
+  "desserts": [
+    {
+      "title": "2 Macarons chocolat",
+      "image": "assets/images/macaronChocolat.jpg",
+      "like": "false",
+      "price": "3",
+      "_id": "100"
+    },
+    {
+      "title": " 2 Macarons Fraise",
+      "image": "assets/images/macaronFraise.jpg",
+      "like": "false",
+      "price": "3",
+      "_id": "200"
+    },
+    {
+      "title": "Donut",
+      "image": "assets/images/donut.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "300"
+    },
+    {
+      "title": "Cookies",
+      "image": "assets/images/cookies.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "400"
+    },
+    {
+      "title": "Cupcake",
+      "image": "assets/images/cupcake.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "700"
+    },
+    {
+      "title": "beignet",
+      "image": "assets/images/beignet.jpg",
+      "like": "false",
+      "price": "2",
+      "_id": "800"
+    }
+  ]
+}
