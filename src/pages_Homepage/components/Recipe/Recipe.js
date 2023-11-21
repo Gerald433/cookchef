@@ -1,47 +1,22 @@
-import { useState } from "react";
+import { useState, createRef } from "react";
 import styles from "./Recipe.module.scss";
 import PropTypes from "prop-types";
 
-function Recipe({
-  recipe,
-
-  addToWishListCallBack,
-  removeFromWishListCallBack,
-  updateReceivedQuantity,
-}) {
-  const [added, setAdded] = useState(false);
-  const [selectedQuantity, setSelectedQuantity] = useState(0);
+function Recipe({ recipe }) {
   const { _id, image, title, price } = recipe;
-  const handleQuantityChange = (event) => {
-    const value = parseInt(event.target.value);
-    setSelectedQuantity(value);
-    if (typeof updateReceivedQuantity === "function") {
-      updateReceivedQuantity(value);
-    }
-  };
+  const input = createRef();
 
-  const handleAddToWishList = () => {
-    console.log("addToWishListCallBack:", addToWishListCallBack);
-    console.log("removeFromWishListCallBack:", removeFromWishListCallBack);
+  function addOrUpdate(e) {
+    const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+    const recipeFound = cart.find((item) => item._id === _id);
+    const quantity = input.current.valueAsNumber;
 
-    if (!added) {
-      addToWishListCallBack(_id);
-    } else {
-      removeFromWishListCallBack(_id);
-    }
+    if (recipeFound) recipeFound.quantity += quantity;
+    else cart.push({ _id, quantity });
 
-    // Mettre à jour le stockage local avec la quantité sélectionnée
-    const existingQuantities =
-      JSON.parse(localStorage.getItem("quantities")) || {};
-
-    // Mettre à jour la quantité pour la recette actuelle
-    existingQuantities[_id] = selectedQuantity;
-
-    // Sauvegarder les quantités mises à jour dans le stockage local
-    localStorage.setItem("quantities", JSON.stringify(existingQuantities));
-
-    setAdded(!added);
-  };
+    // met à jour le LS
+    localStorage.setItem("cart", cart);
+  }
 
   return (
     <div className={styles.recipe}>
@@ -61,8 +36,8 @@ function Recipe({
             id="exempleInput"
             name="exempleInput"
             className={`${styles.quantitySelect}`}
-            value={selectedQuantity}
-            onChange={handleQuantityChange}
+            min="1"
+            ref={input}
           />
           <span>X</span>
           <p className={`${styles.price} `}>{price}</p>
@@ -71,13 +46,11 @@ function Recipe({
       </div>
       <div className={`${styles.addGeneral} d-flex justify-content-center`}>
         <button
-          onClick={handleAddToWishList}
-          className={`${styles.add} ${
-            added ? styles.disabled : ""
-          } btn-primary`}
+          onClick={addOrUpdate}
+          className={`${styles.add}`}
           // disabled={added} // Désactive le bouton si l'élément a déjà été ajouté
         >
-          {added ? "C'est noté" : "Ajouter"}
+          
         </button>
       </div>
     </div>
