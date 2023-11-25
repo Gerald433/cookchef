@@ -66,7 +66,9 @@ function Header() {
           </Link>
         </button>
         <button className="btn btn-primary">
-          <Link to={"/connexion"}>Connexion</Link>
+          <Link className={`${styles.connect}`} to={"/connexion"}>
+            Connexion
+          </Link>
         </button>
       </ul>
       <i

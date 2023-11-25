@@ -23,7 +23,10 @@
     width: 80px;
     border-radius: 50px;
   }
+
+  
 }
+
 .cardList {
   position: relative;
   height: 50px;
@@ -56,6 +59,8 @@
   }
 }
 .headerList {
+  
+  
   @include mixin.xs {
     display: none;
   }
@@ -63,6 +68,9 @@
   .wishList {
     text-decoration: none;
     color: var(--text-color);
+  }
+  .connect{
+    color: white;
   }
 }
 
