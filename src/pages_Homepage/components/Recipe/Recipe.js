@@ -50,7 +50,7 @@ function Recipe({ recipe }) {
           className={`${styles.add}`}
           // disabled={added} // Désactive le bouton si l'élément a déjà été ajouté
         >
-          
+        Valider
         </button>
       </div>
     </div>
