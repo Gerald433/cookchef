@@ -1,15 +1,16 @@
-import { useState, createRef } from "react";
+import { useState, useEffect, createRef } from "react";
 import styles from "./Recipe.module.scss";
 import PropTypes from "prop-types";
 
 function Recipe({ recipe }) {
   const { _id, image, title, price } = recipe;
 
-  // Ajoutez l'état pour suivre si le bouton a été cliqué
-  const [buttonClicked, setButtonClicked] = useState(false);
-
-  // Ajoutez un état pour suivre la visibilité du bouton
-  const [buttonVisible, setButtonVisible] = useState(true);
+  const [buttonState, setButtonState] = useState(
+    JSON.parse(localStorage.getItem(`buttonState_${_id}`)) || {
+      clicked: false,
+      visible: true,
+    }
+  );
 
   function addOrUpdate(e) {
     // Crée un nouvel élément à ajouter au panier
@@ -25,9 +26,24 @@ function Recipe({ recipe }) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     // Masque le bouton
-    setButtonVisible(false);
-    setButtonClicked(true);
+    // Mettez à jour le localStorage avec l'état du bouton
+    localStorage.setItem(
+      `buttonState_${_id}`,
+      JSON.stringify({ clicked: true, visible: false })
+    );
+
+    setButtonState({ clicked: true, visible: false });
   }
+
+  useEffect(() => {
+    // Mettez à jour l'état du bouton lors du chargement du composant
+    setButtonState(
+      JSON.parse(localStorage.getItem(`buttonState_${_id}`)) || {
+        clicked: false,
+        visible: true,
+      }
+    );
+  }, [_id]);
 
   return (
     <div className={styles.recipe}>
@@ -56,7 +72,7 @@ function Recipe({ recipe }) {
         </div>
       </div>
       <div className={`${styles.addGeneral} d-flex justify-content-center`}>
-        {buttonVisible && (
+        {buttonState.visible && (
           <button
             onClick={addOrUpdate}
             className={`${styles.add}`}
@@ -66,7 +82,7 @@ function Recipe({ recipe }) {
           </button>
         )}
 
-        {buttonClicked && (
+        {buttonState.clicked && (
           <span className={`${styles.successMessage}`}>Ajouté au panier!</span>
         )}
       </div>

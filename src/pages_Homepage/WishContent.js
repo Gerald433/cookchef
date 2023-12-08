@@ -5,8 +5,12 @@ import * as Yup from "yup";
 function WishContent() {
   const [receivedQuantity, setReceivedQuantity] = useState(0);
 
-  const updateReceivedQuantity = (quantity) => {
-    setReceivedQuantity(quantity);
+  const updateReceivedQuantity = () => {
+    const totalReceivedQuantity = wishList.reduce(
+      (sum, recipe) => sum + parseInt(quantities[recipe._id]) || 0,
+      0
+    );
+    setReceivedQuantity(totalReceivedQuantity);
   };
 
   const calculateTotal = (recipe) => {
@@ -89,7 +93,7 @@ function WishContent() {
   // Fetch wishList and quantities from localStorage on component mount
   useEffect(() => {
     
-    const storedWishList = JSON.parse(localStorage.getItem("wishList")) || [];
+    const storedWishList = JSON.parse(localStorage.getItem("cart")) || [];
     setWishList(storedWishList);
 
     const storedQuantities =
