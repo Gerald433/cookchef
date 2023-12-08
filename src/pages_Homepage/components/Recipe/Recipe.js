@@ -4,21 +4,28 @@ import PropTypes from "prop-types";
 
 function Recipe({ recipe }) {
   const { _id, image, title, price } = recipe;
-  const input = createRef();
+
+  // Ajoutez l'état pour suivre si le bouton a été cliqué
+  const [buttonClicked, setButtonClicked] = useState(false);
+
+  // Ajoutez un état pour suivre la visibilité du bouton
+  const [buttonVisible, setButtonVisible] = useState(true);
 
   function addOrUpdate(e) {
-    const cart = JSON.parse(localStorage.getItem("cart") ?? "[]");
-    const recipeFound = cart.find((item) => item._id === _id);
-    const quantity = input.current.valueAsNumber;
+    // Crée un nouvel élément à ajouter au panier
+    const cartItem = { _id, title, quantity: 1, price };
 
-    if (recipeFound) {
-      recipeFound.quantity += quantity;
-    } else {
-      cart.push({ _id, title, quantity, price });
-    }
+    // Récupère le panier actuel du localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // met à jour le LS
+    // Ajoute le nouvel élément au panier
+    cart.push(cartItem);
+
+    // Met à jour le localStorage avec le nouveau panier
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Masque le bouton
+    setButtonVisible(false);
   }
 
   return (
@@ -34,7 +41,7 @@ function Recipe({ recipe }) {
         <div
           className={`${styles.under} d-flex justify-content-center align-items-center`}
         >
-          <input
+          {/* <input
             type="number"
             id="exempleInput"
             name="exempleInput"
@@ -42,19 +49,25 @@ function Recipe({ recipe }) {
             min="1"
             ref={input}
           />
-          <span>X</span>
+          <span>X</span> */}
           <p className={`${styles.price} `}>{price}</p>
           <span>€</span>
         </div>
       </div>
       <div className={`${styles.addGeneral} d-flex justify-content-center`}>
-        <button
-          onClick={addOrUpdate}
-          className={`${styles.add}`}
-          // disabled={added} // Désactive le bouton si l'élément a déjà été ajouté
-        >
-          Valider
-        </button>
+        {buttonVisible && (
+          <button
+            onClick={addOrUpdate}
+            className={`${styles.add}`}
+            // disabled={added} // Désactive le bouton si l'élément a déjà été ajouté
+          >
+            Valider
+          </button>
+        )}
+
+        {buttonClicked && (
+          <span className={`${styles.successMessage}`}>Ajouté au panier!</span>
+        )}
       </div>
     </div>
   );
