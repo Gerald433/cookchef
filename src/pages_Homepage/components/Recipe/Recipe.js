@@ -26,6 +26,7 @@ function Recipe({ recipe }) {
 
     // Masque le bouton
     setButtonVisible(false);
+    setButtonClicked(true);
   }
 
   return (
@@ -73,17 +74,17 @@ function Recipe({ recipe }) {
   );
 }
 
-Recipe.propTypes = {
-  recipe: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    like: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-  }).isRequired,
-  addToWishListCallBack: PropTypes.func.isRequired,
-  removeFromWishListCallBack: PropTypes.func.isRequired,
-  updateReceivedQuantity: PropTypes.func.isRequired,
-};
+// Recipe.propTypes = {
+//   recipe: PropTypes.shape({
+//     _id: PropTypes.string.isRequired,
+//     like: PropTypes.number.isRequired,
+//     title: PropTypes.string.isRequired,
+//     image: PropTypes.string.isRequired,
+//     price: PropTypes.number.isRequired,
+//   }).isRequired,
+//   addToWishListCallBack: PropTypes.func.isRequired,
+//   removeFromWishListCallBack: PropTypes.func.isRequired,
+//   updateReceivedQuantity: PropTypes.func.isRequired,
+// };
 
 export default Recipe;
