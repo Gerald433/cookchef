@@ -11,11 +11,14 @@ function Recipe({ recipe }) {
     const recipeFound = cart.find((item) => item._id === _id);
     const quantity = input.current.valueAsNumber;
 
-    if (recipeFound) recipeFound.quantity += quantity;
-    else cart.push({ _id, quantity });
+    if (recipeFound) {
+      recipeFound.quantity += quantity;
+    } else {
+      cart.push({ _id, title, quantity, price });
+    }
 
     // met à jour le LS
-    localStorage.setItem("cart", cart);
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 
   return (
@@ -50,7 +53,7 @@ function Recipe({ recipe }) {
           className={`${styles.add}`}
           // disabled={added} // Désactive le bouton si l'élément a déjà été ajouté
         >
-        Valider
+          Valider
         </button>
       </div>
     </div>
