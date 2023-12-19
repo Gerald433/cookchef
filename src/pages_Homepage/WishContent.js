@@ -134,7 +134,7 @@ function WishContent() {
                     min={1}
                     placeholder={1}
                     value={inputQuantity}
-                    onChange={(e) => setInputQuantity(e.target.value)} />
+                     />
                     <span className={`${styles.priceUnit}`}>x</span>
                     <span className={`${styles.priceUnit}`}>
                       {recipe.price} €
