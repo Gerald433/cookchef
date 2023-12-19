@@ -3,6 +3,7 @@ import styles from "./WishContent.module.scss";
 import * as Yup from "yup";
 
 function WishContent() {
+  const [inputQuantity, setInputQuantity] = useState(1);
   const [receivedQuantity, setReceivedQuantity] = useState(0);
 
   const updateReceivedQuantity = () => {
@@ -129,7 +130,11 @@ function WishContent() {
                 <div className={`${styles.box} d-flex `}>
                   <div className={`${styles.firstCalcul} d-flex `}>
                     <span className={`${styles.recup} `}>Nbre {updateReceivedQuantity}</span>
-
+                    <input type="number"
+                    min={1}
+                    placeholder={1}
+                    value={inputQuantity}
+                    onChange={(e) => setInputQuantity(e.target.value)} />
                     <span className={`${styles.priceUnit}`}>x</span>
                     <span className={`${styles.priceUnit}`}>
                       {recipe.price} €
